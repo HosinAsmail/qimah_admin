@@ -1,5 +1,5 @@
-import 'package:qimah_admin/core/constant/app_theme.dart';
 import 'package:qimah_admin/core/services/init%20services/init_services.dart';
+import 'package:qimah_admin/core/theme/theme.dart';
 import 'package:qimah_admin/debug/app_bloc_observer.dart';
 import 'package:qimah_admin/generated/l10n.dart';
 import 'package:qimah_admin/routs.dart';
@@ -38,7 +38,9 @@ class DollarApp extends StatelessWidget {
         }
         return supportedLocales.first;
       },
-      theme: arabicTheme,
+      themeMode: ThemeMode.system,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       getPages: routes,
     );

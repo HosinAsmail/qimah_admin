@@ -1,6 +1,5 @@
 import 'package:qimah_admin/core/constant/app_routes.dart';
-import 'package:qimah_admin/core/functions/init_get_it.dart';
-import 'package:qimah_admin/data/data%20source/locale/store_step_service.dart';
+import 'package:qimah_admin/data/data%20source/locale/store_step.dart';
 import 'package:qimah_admin/data/data%20source/static/static.dart';
 import 'package:qimah_admin/data/model/onboarding_model.dart';
 import 'package:qimah_admin/generated/l10n.dart';
@@ -23,7 +22,7 @@ class OnBoardingScreen extends StatelessWidget {
           done: Text(S.of(context).onboarding_done),
           onDone: () {
             Get.offAllNamed(AppRoute.loginScreen);
-            getIt.get<StoreStepService>().setStep("1");
+            StoreStep.setStep("1");
           },
           dotsDecorator: DotsDecorator(
             activeSize: const Size(22, 10),

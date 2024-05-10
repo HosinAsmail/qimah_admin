@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:get/get.dart';
-import 'package:qimah_admin/core/functions/alert_dialog.dart';
+import 'package:qimah_admin/core/helper/functions/alert_dialog.dart';
 
 Future<bool> alertExit() {
   alertDialog(

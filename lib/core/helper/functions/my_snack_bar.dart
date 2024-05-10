@@ -6,5 +6,5 @@ void mySnackBar(Color color, String title, String message) {
   Get.snackbar(title, message,
       snackPosition: SnackPosition.TOP,
       backgroundColor: color,
-      colorText: AppColor.background);
+      colorText: AppColor.textPrimary);
 }
