@@ -1,6 +1,6 @@
 import 'package:qimah_admin/core/helper/functions/my_snack_bar.dart';
 import 'package:qimah_admin/core/helper/functions/valid_input_function.dart';
-import 'package:qimah_admin/core/shared/custom_text_field.dart';
+import 'package:qimah_admin/core/shared/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qimah_admin/core/constant/app_color.dart';
@@ -27,11 +27,11 @@ class EditText extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CustomTextField(
+          CustomTextFormField(
               autoFocus: true,
               hintText: mainText,
               label: "الرجاء إدخال $mainText ",
-              iconData: iconData,
+              suffix: Icon(iconData),
               controller: textController,
               validator: (value) {
                 return validInput(value!.trim(), 1, 7, 'text');
@@ -45,7 +45,8 @@ class EditText extends StatelessWidget {
                 if (textController.text.isNotEmpty) {
                   Get.back(result: textController.text);
                 } else if (textController.text.isEmpty) {
-                mySnackBar(AppColor.failure, 'خطأ', 'الرجاء إدخال $mainText ');
+                  mySnackBar(
+                      AppColor.failure, 'خطأ', 'الرجاء إدخال $mainText ');
                 }
               },
               child: Text('تعديل $mainText'))

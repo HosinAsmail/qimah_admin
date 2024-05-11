@@ -17,23 +17,23 @@ class MyAppTextFormFieldTheme {
     floatingLabelStyle:
         const TextStyle().copyWith(color: AppColor.black.withOpacity(0.8)),
     border: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(12.0),
+      borderRadius: BorderRadius.circular(15),
       borderSide: const BorderSide(width: 1, color: AppColor.grey),
     ),
     enabledBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(12.0),
+      borderRadius: BorderRadius.circular(15),
       borderSide: const BorderSide(width: 1, color: AppColor.grey),
     ),
     focusedBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(12.0),
+      borderRadius: BorderRadius.circular(15),
       borderSide: const BorderSide(width: 1, color: AppColor.dark),
     ),
     errorBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(12.0),
+      borderRadius: BorderRadius.circular(15),
       borderSide: const BorderSide(width: 1, color: AppColor.warning),
     ),
     focusedErrorBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(12.0),
+      borderRadius: BorderRadius.circular(15),
       borderSide: const BorderSide(width: 2, color: AppColor.warning),
     ),
   );
@@ -50,23 +50,23 @@ class MyAppTextFormFieldTheme {
     floatingLabelStyle:
         const TextStyle().copyWith(color: AppColor.white.withOpacity(0.8)),
     border: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(12.0),
+      borderRadius: BorderRadius.circular(15),
       borderSide: const BorderSide(width: 1, color: AppColor.darkGrey),
     ),
     enabledBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(12.0),
+      borderRadius: BorderRadius.circular(15),
       borderSide: const BorderSide(width: 1, color: AppColor.darkGrey),
     ),
     focusedBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(12.0),
+      borderRadius: BorderRadius.circular(15),
       borderSide: const BorderSide(width: 1, color: AppColor.white),
     ),
     errorBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(12.0),
+      borderRadius: BorderRadius.circular(15),
       borderSide: const BorderSide(width: 1, color: AppColor.warning),
     ),
     focusedErrorBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(12.0),
+      borderRadius: BorderRadius.circular(15),
       borderSide: const BorderSide(width: 2, color: AppColor.warning),
     ),
   );

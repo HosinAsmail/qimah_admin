@@ -25,7 +25,8 @@ class ServerFailure extends Failure {
       case DioExceptionType.cancel:
         return ServerFailure('Request to ApiServer was canceled');
       case DioExceptionType.unknown:
-        if (dioError.message!.contains('SocketException') || dioError.message!.contains('HandshakeException')) {
+        if (dioError.message!.contains('SocketException') ||
+            dioError.message!.contains('HandshakeException')) {
           return ServerFailure('No Internet Connection');
         }
         return ServerFailure('Unexpected Error, Please try again!');
@@ -46,7 +47,7 @@ class ServerFailure extends Failure {
     }
   }
 }
-class SocialMediaSignInFailure extends Failure{
-  SocialMediaSignInFailure(super.errMessage);
 
+class SocialMediaSignUpFailure extends Failure {
+  SocialMediaSignUpFailure(super.errMessage);
 }

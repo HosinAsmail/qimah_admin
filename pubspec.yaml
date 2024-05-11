@@ -55,6 +55,8 @@ dependencies:
   logger: ^2.2.0
   font_awesome_flutter: ^10.7.0
   cached_network_image: ^3.3.1
+  drop_down_list: ^0.0.6
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +71,10 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+flutter_assets:
+  assets_path: assets/
+  output_path: lib/core/constant/
+  filename: app_assets.dart
 
 # The following section is specific to Flutter packages.
 flutter:

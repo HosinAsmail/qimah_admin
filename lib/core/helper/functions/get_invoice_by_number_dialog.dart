@@ -2,7 +2,7 @@ import 'package:qimah_admin/core/constant/app_color.dart';
 import 'package:qimah_admin/core/extension/string_extensions.dart';
 import 'package:qimah_admin/core/helper/functions/my_snack_bar.dart';
 import 'package:qimah_admin/core/helper/functions/valid_input_function.dart';
-import 'package:qimah_admin/core/shared/custom_text_field.dart';
+import 'package:qimah_admin/core/shared/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -23,10 +23,10 @@ Future<int?> getInvoiceByNumberDialog(context) async {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CustomTextField(
+              CustomTextFormField(
                   hintText: "رقم الفاتورة",
                   label: "أدخل رقم الفاتورة",
-                  iconData: FontAwesomeIcons.fileInvoice,
+                  suffix: const Icon(FontAwesomeIcons.fileInvoice),
                   controller: invoiceNumberController,
                   validator: (value) {
                     return validInput(value!.trim(), 1, 20, 'number');
