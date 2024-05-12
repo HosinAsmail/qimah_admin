@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qimah_admin/bloc/sign%20up%20bloc/sign_up_bloc.dart';
 import 'package:qimah_admin/core/constant/app_assets.dart';
+import 'package:qimah_admin/core/constant/app_color.dart';
+import 'package:qimah_admin/core/shared/buttons/custom_elevated_button.dart';
 import 'package:qimah_admin/core/shared/custom_image_view.dart';
 import 'package:qimah_admin/core/shared/custom_text_form_field.dart';
 
@@ -28,17 +30,17 @@ class SignUpScreen extends StatelessWidget {
               Align(
                 alignment: Alignment.centerRight,
                 child: Text(
-                  "lbl6",
+                  "أنشئ حسابك",
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 16),
               BlocSelector<SignUpBloc, SignUpState, TextEditingController?>(
                 selector: (state) => state.usernameController,
                 builder: (context, usernameController) {
                   return CustomTextFormField(
                     controller: usernameController,
-                    hintText: "lbl7",
+                    hintText: "اسم المستخدم",
                   );
                 },
               ),
@@ -48,7 +50,7 @@ class SignUpScreen extends StatelessWidget {
                 builder: (context, emailController) {
                   return CustomTextFormField(
                     controller: emailController,
-                    hintText: "msg4",
+                    hintText: "البريد الالكتروني",
                   );
                 },
               ),
@@ -58,25 +60,20 @@ class SignUpScreen extends StatelessWidget {
                 builder: (context, passwordController) {
                   return CustomTextFormField(
                     controller: passwordController,
-                    hintText: "lbl2",
+                    hintText: "كلمة المرور",
                   );
                 },
               ),
               const SizedBox(height: 16),
-              Container(
-                width: 302,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 19,
-                ),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black), // Example decoration
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Text(
-                  "msg5",
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
+              BlocSelector<SignUpBloc, SignUpState, TextEditingController?>(
+                selector: (state) => state.passwordConfirmController,
+                builder: (context, passwordConfirmController) {
+                  return CustomTextFormField(
+                    controller: passwordConfirmController,
+                    hintText: "تأكيد كلمة المرور",
+                    textInputAction: TextInputAction.done,
+                  );
+                },
               ),
               const SizedBox(height: 16),
               BlocSelector<SignUpBloc, SignUpState, TextEditingController?>(
@@ -84,30 +81,32 @@ class SignUpScreen extends StatelessWidget {
                 builder: (context, phoneNumberController) {
                   return CustomTextFormField(
                     controller: phoneNumberController,
-                    hintText: "lbl8",
+                    hintText: "رقم الهاتف",
                     textInputAction: TextInputAction.done,
                   );
                 },
               ),
               const SizedBox(height: 16),
-              // CustomElevatedButton(
-              //   text: "lbl9",
-              // ),
+              const CustomElevatedButton(
+                text: "إنشاء الحساب",
+              ),
               const SizedBox(height: 36),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(left: 4),
+                    padding: const EdgeInsets.only(left: 4),
                     child: Text(
-                      "lbl10",
-                      style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                      "يوجد لديك حساب؟ ",
+                      style: Theme.of(context).textTheme.labelSmall!,
                     ),
                   ),
                   Text(
-                    "lbl3",
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                    "تسجيل الدخول",
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelSmall!
+                        .copyWith(color: AppColor.secondaryColor),
                   ),
                 ],
               ),

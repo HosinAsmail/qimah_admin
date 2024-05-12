@@ -6,6 +6,6 @@ abstract class InitServices {
   static Future<void> init() async {
     initGetIt();
     PrefStorage.init();
-    StoreStep.setStep('1');
+    // StoreStep.setStep('1');
   }
 }

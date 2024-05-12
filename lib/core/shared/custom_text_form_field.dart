@@ -83,33 +83,46 @@ class CustomTextFormField extends StatelessWidget {
 
   Widget textFormFieldWidget(BuildContext context) => SizedBox(
         width: width ?? double.maxFinite,
-        child: TextFormField(
-          scrollPadding:
-              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-          controller: controller,
-          focusNode: focusNode,
-          onTapOutside: (event) {
-            if (focusNode != null) {
-              focusNode?.unfocus();
-            } else {
-              FocusManager.instance.primaryFocus?.unfocus();
-            }
-          },
-          autofocus: autoFocus!,
-          style: textStyle ?? Theme.of(context).textTheme.bodySmall,
-          obscureText: obscureText!,
-          textInputAction: textInputAction,
-          keyboardType: keyboardType,
-          maxLines: maxLines ?? 1,
-          decoration: decoration(context),
-          validator: validator,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.12),
+                spreadRadius: 5,
+                blurRadius: 8,
+                offset: const Offset(0, 4),
+              ),
+            ],
+          ),
+          child: TextFormField(
+            scrollPadding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom),
+            controller: controller,
+            focusNode: focusNode,
+            onTapOutside: (event) {
+              if (focusNode != null) {
+                focusNode?.unfocus();
+              } else {
+                FocusManager.instance.primaryFocus?.unfocus();
+              }
+            },
+            autofocus: autoFocus!,
+            style: textStyle ?? Theme.of(context).textTheme.bodySmall,
+            obscureText: obscureText!,
+            textInputAction: textInputAction,
+            keyboardType: keyboardType,
+            maxLines: maxLines ?? 1,
+            decoration: decoration(context),
+            validator: validator,
+          ),
         ),
       );
 
   InputDecoration decoration(context) => InputDecoration(
         label: label == null ? null : Text(label!),
         hintText: hintText ?? "",
-        hintStyle: hintStyle ?? Theme.of(context).textTheme.bodySmall,
+        hintStyle: hintStyle ?? Theme.of(context).textTheme.labelMedium,
         prefixIcon: prefix,
         prefixIconConstraints: prefixConstraints,
         suffixIcon: suffix,

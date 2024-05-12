@@ -1,5 +1,5 @@
 import 'package:qimah_admin/core/services/init%20services/init_services.dart';
-import 'package:qimah_admin/core/theme/theme.dart';
+import 'package:qimah_admin/core/theme/app_theme.dart';
 import 'package:qimah_admin/debug/app_bloc_observer.dart';
 import 'package:qimah_admin/generated/l10n.dart';
 import 'package:qimah_admin/routs.dart';
@@ -12,11 +12,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = AppBlocObserver();
   await InitServices.init();
-  runApp(const DollarApp());
+  runApp(const QimahAdminApp());
 }
 
-class DollarApp extends StatelessWidget {
-  const DollarApp({super.key});
+class QimahAdminApp extends StatelessWidget {
+  const QimahAdminApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class DollarApp extends StatelessWidget {
         }
         return supportedLocales.first;
       },
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,

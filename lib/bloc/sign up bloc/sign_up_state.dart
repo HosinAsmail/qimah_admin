@@ -8,6 +8,7 @@ class SignUpState extends Equatable {
       {this.usernameController,
       this.emailController,
       this.passwordController,
+      this.passwordConfirmController,
       this.phoneNumberController,
       this.signUpModel});
 
@@ -16,6 +17,7 @@ class SignUpState extends Equatable {
   TextEditingController? emailController;
 
   TextEditingController? passwordController;
+  TextEditingController? passwordConfirmController;
 
   TextEditingController? phoneNumberController;
 
@@ -25,6 +27,7 @@ class SignUpState extends Equatable {
   List<Object?> get props => [
         usernameController,
         emailController,
+        passwordConfirmController,
         passwordController,
         phoneNumberController,
         signUpModel
@@ -33,10 +36,13 @@ class SignUpState extends Equatable {
     TextEditingController? usernameController,
     TextEditingController? emailController,
     TextEditingController? passwordController,
+    TextEditingController? passwordConfirmController,
     TextEditingController? phoneNumberController,
     SignUpModel? signUpModel,
   }) {
     return SignUpState(
+      passwordConfirmController:
+          passwordConfirmController ?? this.passwordConfirmController,
       usernameController: usernameController ?? this.usernameController,
       emailController: emailController ?? this.emailController,
       passwordController: passwordController ?? this.passwordController,

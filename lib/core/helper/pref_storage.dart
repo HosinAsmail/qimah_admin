@@ -16,7 +16,7 @@ class PrefStorage {
   }
 
   static Future<void> set(String key, dynamic value) async {
-    await sharedPreferences!.setString('step', value);
+    await sharedPreferences!.setString(key, value);
   }
 
   static dynamic get(String key) {

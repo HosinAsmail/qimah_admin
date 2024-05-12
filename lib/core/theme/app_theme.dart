@@ -15,6 +15,11 @@ class AppTheme {
 
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
+    // colorScheme: const ColorScheme.light(
+    //   primary: Color(0X26431B36),
+    //   primaryContainer: Color(0XFFB3806D),
+    //   onPrimary: Color(0XFFD9D9D9),
+    // ),
     fontFamily: 'Poppins',
     disabledColor: AppColor.grey,
     brightness: Brightness.light,
