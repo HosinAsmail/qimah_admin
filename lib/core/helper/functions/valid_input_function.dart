@@ -1,44 +1,45 @@
 import 'package:qimah_admin/core/extension/string_extensions.dart';
 import 'package:get/get.dart';
 
-validInput(String value, int min, int max, String type) {
+String? validInput(String value, int min, int max, String type) {
   if (value.isEmpty) {
-    return 'the field is required';
+    return 'الحقل مطلوب';
   }
 
   if (type == 'username') {
     if (!GetUtils.isUsername(value)) {
-      return 'not valid username';
+      return 'اسم المستخدم غير صالح';
     }
   }
   if (type == 'email') {
     if (!GetUtils.isEmail(value)) {
-      return 'not valid email';
+      return 'البريد الإلكتروني غير صالح';
     }
   }
   if (type == 'phone') {
     if (!GetUtils.isPhoneNumber(value)) {
-      return 'not valid phone number';
+      return 'رقم الهاتف غير صالح';
     }
   }
 
   if (type == 'number') {
     if (!GetUtils.isNum(value)) {
-      return 'not valid number';
+      return 'الرقم غير صالح';
     }
   }
   if (type == "discount") {
     if (value.toInt() > 100) {
-      return "can not be more than 100%";
+      return "لا يمكن أن يكون أكثر من 100%";
     } else if (value.contains("%")) {
-      return "please remove the percent sign ";
+      return "يرجى إزالة علامة النسبة المئوية";
     }
   }
   if (value.length < min) {
-    return "value can't be less thant $min";
+    return "القيمة لا يمكن أن تكون أقل من $min";
   }
 
   if (value.length > max) {
-    return "value can't be bigger thant $max";
+    return "القيمة لا يمكن أن تكون أكبر من $max";
   }
+  return null;
 }

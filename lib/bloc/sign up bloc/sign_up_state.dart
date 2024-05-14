@@ -4,51 +4,24 @@ part of 'sign_up_bloc.dart';
 
 // ignore_for_file: must_be_immutable
 class SignUpState extends Equatable {
-  SignUpState(
-      {this.usernameController,
-      this.emailController,
-      this.passwordController,
-      this.passwordConfirmController,
-      this.phoneNumberController,
-      this.signUpModel});
-
-  TextEditingController? usernameController;
-
-  TextEditingController? emailController;
-
-  TextEditingController? passwordController;
-  TextEditingController? passwordConfirmController;
-
-  TextEditingController? phoneNumberController;
-
-  SignUpModel? signUpModel;
-
+  const SignUpState();
   @override
-  List<Object?> get props => [
-        usernameController,
-        emailController,
-        passwordConfirmController,
-        passwordController,
-        phoneNumberController,
-        signUpModel
-      ];
-  SignUpState copyWith({
-    TextEditingController? usernameController,
-    TextEditingController? emailController,
-    TextEditingController? passwordController,
-    TextEditingController? passwordConfirmController,
-    TextEditingController? phoneNumberController,
-    SignUpModel? signUpModel,
-  }) {
-    return SignUpState(
-      passwordConfirmController:
-          passwordConfirmController ?? this.passwordConfirmController,
-      usernameController: usernameController ?? this.usernameController,
-      emailController: emailController ?? this.emailController,
-      passwordController: passwordController ?? this.passwordController,
-      phoneNumberController:
-          phoneNumberController ?? this.phoneNumberController,
-      signUpModel: signUpModel ?? signUpModel,
-    );
-  }
+  // TODO: implement props
+  List<Object?> get props => [];
+}
+
+class SignUpInitial extends SignUpState {}
+
+class SignUpLoading extends SignUpState {}
+
+class SignUpFailure extends SignUpState {
+  final String errorMessage;
+  @override
+  // TODO: implement props
+  List<Object?> get props => [errorMessage];
+  const SignUpFailure(this.errorMessage);
+}
+
+class SignUpSuccess extends SignUpState {
+  const SignUpSuccess();
 }

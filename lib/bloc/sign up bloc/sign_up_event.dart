@@ -14,3 +14,8 @@ class SignUpInitialEvent extends SignUpEvent {
   @override
   List<Object?> get props => [];
 }
+
+class SignUpPressedEvent extends SignUpEvent {
+  @override
+  List<Object?> get props => [];
+}

@@ -1,4 +1,7 @@
 class AppLinks {
   static const String serverLink =
-      'https://housinasmail.000webhostapp.com/ecommerce/admin';
+      'http://muaazaltahan-001-site1.btempurl.com/api/';
+  //-------------------------auth------------------------/
+  static const String authLink = '$serverLink/auth';
+  static const String signUpLink = '$authLink/register';
 }
