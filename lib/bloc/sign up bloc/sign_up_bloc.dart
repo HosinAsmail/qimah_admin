@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qimah_admin/data/data%20source/repo/auth%20repo/auth_repo.dart';
-import 'package:qimah_admin/data/model/sign_up_model.dart';
+import 'package:qimah_admin/data/model/auth%20models/sign_up_model.dart';
 part 'sign_up_event.dart';
 part 'sign_up_state.dart';
 

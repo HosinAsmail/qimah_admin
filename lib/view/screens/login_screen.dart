@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:qimah_admin/bloc/sign%20up%20bloc/sign_up_bloc.dart';
+import 'package:qimah_admin/bloc/login%20bloc/login_bloc.dart';
 import 'package:qimah_admin/core/constant/app_assets.dart';
 import 'package:qimah_admin/core/constant/app_color.dart';
 import 'package:qimah_admin/core/constant/app_routes.dart';
+import 'package:qimah_admin/core/device/device_utility.dart';
 import 'package:qimah_admin/core/helper/functions/alert_loading.dart';
 import 'package:qimah_admin/core/helper/functions/close_loading_dialog.dart';
 import 'package:qimah_admin/core/helper/functions/valid_input_function.dart';
@@ -13,26 +14,26 @@ import 'package:qimah_admin/core/shared/custom_image_view.dart';
 import 'package:qimah_admin/core/shared/custom_text_form_field.dart';
 import '../../core/helper/functions/my_snack_bar.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    SignUpBloc signUpBloc = context.read<SignUpBloc>();
+    LoginBloc loginBloc = context.read<LoginBloc>();
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        body: BlocListener<SignUpBloc, SignUpState>(
+        body: BlocListener<LoginBloc, LoginState>(
           listener: (context, state) {
-            if (state is SignUpFailure) {
+            if (state is LoginFailure) {
               closeLoadingDialog();
               mySnackBar(AppColor.failure, "خطأ", state.errorMessage);
-            } else if (state is SignUpSuccess) {
+            } else if (state is LoginSuccess) {
               closeLoadingDialog();
               Get.offAllNamed(AppRoute.loginScreen);
-              mySnackBar(AppColor.success, 'نجاح', 'تم  إنشاء الحساب');
-            } else if (state is SignUpLoading) {
+              mySnackBar(AppColor.success, 'نجاح', 'تم تسجيل الدخول');
+            } else if (state is LoginLoading) {
               alertLoading();
             }
           },
@@ -50,29 +51,17 @@ class SignUpScreen extends StatelessWidget {
                     height: 77,
                     width: 72,
                   ),
-                  const SizedBox(height: 9),
+                  SizedBox(height: Get.height / 7),
                   Align(
                     alignment: Alignment.centerRight,
                     child: Text(
-                      "أنشئ حسابك",
+                      "سجل الدخول إلى حسابك",
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ),
                   const SizedBox(height: 16),
                   CustomTextFormField(
-                    controller: signUpBloc.usernameController,
-                    textDirection: TextDirection.rtl,
-                    keyboardType: TextInputType.name,
-                    validator: (value) {
-                      return validInput(value!.trim(), 3, 20, 'name');
-                    },
-                    hintText: 'أدخل اسم المستخدم',
-                    label: 'اسم المستخدم',
-                    iconData: Icons.person_outline,
-                  ),
-                  const SizedBox(height: 16),
-                  CustomTextFormField(
-                    controller: signUpBloc.emailController,
+                    controller: loginBloc.emailController,
                     keyboardType: TextInputType.emailAddress,
                     textDirection: TextDirection.ltr,
                     validator: (value) {
@@ -84,7 +73,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   CustomTextFormField(
-                    controller: signUpBloc.passwordController,
+                    controller: loginBloc.passwordController,
                     obscureText: true,
                     onPressedIcon: () {},
                     keyboardType: TextInputType.visiblePassword,
@@ -97,58 +86,32 @@ class SignUpScreen extends StatelessWidget {
                     iconData: Icons.lock_outline,
                   ),
                   const SizedBox(height: 16),
-                  CustomTextFormField(
-                    controller: signUpBloc.passwordConfirmController,
-                    obscureText: true,
-                    onPressedIcon: () {},
-                    keyboardType: TextInputType.visiblePassword,
-                    textDirection: TextDirection.ltr,
-                    validator: (value) {
-                      return validInput(value!.trim(), 5, 30, 'password');
-                    },
-                    hintText: "تأكيد كلمة المرور",
-                    label: "تأكيد كلمة المرور",
-                    iconData: Icons.lock_outline,
-                  ),
-                  const SizedBox(height: 16),
-                  CustomTextFormField(
-                    controller: signUpBloc.phoneNumberController,
-                    keyboardType: TextInputType.number,
-                    textDirection: TextDirection.ltr,
-                    validator: (value) {
-                      return validInput(value!.trim(), 5, 10, 'phone');
-                    },
-                    hintText: "أدخل رقم الهاتف",
-                    label: "رقم الهاتف",
-                    iconData: Icons.phone,
-                  ),
-                  const SizedBox(height: 16),
                   CustomElevatedButton(
-                    text: "إنشاء الحساب",
+                    text: "تسجيل الدخول",
                     onPressed: () {
                       formKey.currentState!.save();
                       if (formKey.currentState!.validate()) {
-                        signUpBloc.add(SignUpPressedEvent());
+                        loginBloc.add(LoginPressedEvent());
                       }
                     },
                   ),
-                  const SizedBox(height: 36),
+                  SizedBox(height: AppDevice.getScreenHeight() / 6),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 4),
                         child: Text(
-                          "يوجد لديك حساب؟ ",
+                          "ليس لديك حساب؟ ",
                           style: Theme.of(context).textTheme.labelSmall!,
                         ),
                       ),
                       InkWell(
                         onTap: () {
-                          Get.back();
+                          Get.toNamed(AppRoute.signUpScreen);
                         },
                         child: Text(
-                          "تسجيل الدخول",
+                          "إنشاء حساب",
                           style: Theme.of(context)
                               .textTheme
                               .labelSmall!

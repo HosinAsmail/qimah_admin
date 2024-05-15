@@ -4,4 +4,6 @@ class AppLinks {
   //-------------------------auth------------------------/
   static const String authLink = '$serverLink/auth';
   static const String signUpLink = '$authLink/register';
+  static const String loginLink = '$authLink/login';
+
 }
