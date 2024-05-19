@@ -18,7 +18,6 @@ extension ImageTypeExtension on String {
   }
 }
 
-
 // ignore_for_file: must_be_immutable
 class CustomImageView extends StatelessWidget {
   CustomImageView(

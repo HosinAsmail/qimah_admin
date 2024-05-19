@@ -9,7 +9,7 @@ class MyMiddleWare extends GetMiddleware {
 
   @override
   RouteSettings? redirect(String? route) {
-    String? step =StoreStep.getStep();
+    String? step = StoreStep.getStep();
     if (step == '1') {
       return const RouteSettings(name: AppRoute.homeScreen);
     } else {
