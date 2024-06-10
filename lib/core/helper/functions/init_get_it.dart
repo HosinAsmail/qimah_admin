@@ -20,9 +20,8 @@ void initGetIt() async {
   getIt.registerSingleton<TokenModel>(TokenModel());
   getIt.registerSingleton<FlutterSecureStorage>(const FlutterSecureStorage());
   getIt.registerSingleton(AppInterceptors(
-      tokenModel: getIt.get<TokenModel>(),
-      dio: getIt.get<Dio>(),
-      secureStorage: getIt.get<FlutterSecureStorage>()));
+    dio: getIt.get<Dio>(),
+  ));
   getIt.registerSingleton<ApiService>(ApiService(dio: getIt.get<Dio>()));
   getIt.registerSingleton<AuthRepoImpl>(AuthRepoImpl(getIt.get<ApiService>()));
 

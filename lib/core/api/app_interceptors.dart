@@ -1,29 +1,24 @@
 import 'dart:io';
+import 'package:qimah_admin/core/helper/functions/init_get_it.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:qimah_admin/core/constant/app_links.dart';
 import 'package:qimah_admin/data.dart';
 import 'package:qimah_admin/data/data%20source/locale/store_token.dart';
-import 'package:qimah_admin/data/data%20source/locale/store_user.dart';
 import 'package:qimah_admin/data/model/auth%20models/token_model.dart';
-import 'package:qimah_admin/data/model/user_model.dart';
 
 class AppInterceptors extends Interceptor {
   final Dio dio;
-  AppInterceptors(
-      {required this.secureStorage,
-      required this.dio,
-      required this.tokenModel});
-  final FlutterSecureStorage secureStorage;
-  final TokenModel tokenModel;
+  AppInterceptors({
+    required this.dio,
+  });
   @override
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
     options.headers[HttpHeaders.acceptHeader] = ContentType.json;
-    tokenModel.accessToken ??= await secureStorage.read(key: "access-token");
-    if (tokenModel.accessToken != null) {
+    getIt.get<TokenModel>().accessToken;
+    if (getIt.get<TokenModel>().accessToken != null) {
       options.headers[HttpHeaders.authorizationHeader] =
-          "Bearer ${tokenModel.accessToken}";
+          "Bearer ${getIt.get<TokenModel>().accessToken}";
     }
     super.onRequest(options, handler);
   }
@@ -40,10 +35,11 @@ class AppInterceptors extends Interceptor {
       DioException err, ErrorInterceptorHandler handler) async {
     logger.e(
         'ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}');
-    if (err.response?.statusCode == 401) {
-      await StoreToken.getToken();
-      if (tokenModel.accessToken != null && tokenModel.refreshToken != null) {
-        if (await refreshToken(tokenModel)) {
+    if (err.response?.statusCode == 401 &&
+        (err.response!.data["message"] as String).contains("Expired token")) {
+      if (getIt.get<TokenModel>().accessToken != null &&
+          getIt.get<TokenModel>().refreshToken != null) {
+        if (await refreshToken(getIt.get<TokenModel>())) {
           return handler.resolve(await _retry(err.requestOptions));
         }
       }
@@ -64,18 +60,17 @@ class AppInterceptors extends Interceptor {
 
   Future<bool> refreshToken(TokenModel tokenModel) async {
     final response = await dio.post(AppLinks.refreshTokenLink, data: {
-      "token": tokenModel.refreshToken,
-      "expires": tokenModel.expires
-    });
+      "refresh_token": tokenModel.refreshToken,
+      // "expires": tokenModel.expires
+    },);
     if (response.statusCode == 200) {
       //token data
-      tokenModel.accessToken = response.data["accessToken"];
-      tokenModel.refreshToken = response.data["refreshToken"];
-      tokenModel.expires = response.data["expires"];
-      StoreToken.storeToken(tokenModel);
-      //user
-      StoreUser.setUser(UserModel.fromJson(response.data));
-
+      tokenModel.accessToken = response.data["data"]["access_token"];
+      tokenModel.refreshToken = response.data["data"]["refresh_token"];
+      // tokenModel.expires = response.data["expires"];
+      // logger.w(tokenModel.toString());
+      await StoreToken.storeToken(tokenModel);
+      await StoreToken.initTokenVariable();
       return true;
     } else {
       return false;

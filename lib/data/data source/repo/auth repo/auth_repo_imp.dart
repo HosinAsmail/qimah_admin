@@ -17,34 +17,34 @@ class AuthRepoImpl implements AuthRepo {
   @override
   Future<Either<Failure, void>> login(LoginModel loginModel) async {
     var result = await apiService.post(
-        url: AppLinks.loginLink, body: loginModel.toJson());
-    result.fold((failure) {
+      url: AppLinks.loginLink,
+      body: loginModel.toJson(),
+    );
+    return result.fold((failure) {
       return left(failure);
     }, (response) {
       //user
-      StoreUser.setUser(UserModel.fromJson(response));
+      StoreUser.setUser(UserModel.fromJson(response["data"]));
       //token
-      getIt.get<TokenModel>().fromJson(response);
-      StoreToken.storeToken(TokenModel.fromJson(response));
+      getIt.get<TokenModel>().fromJson(response["data"]);
+      StoreToken.storeToken(getIt.get<TokenModel>());
       return right(null);
     });
-    return right(null); // this code will no be executed at all
   }
 
   @override
   Future<Either<Failure, void>> signUp(SignUpModel signUpModel) async {
     var result = await apiService.post(
         url: AppLinks.signUpLink, body: signUpModel.toJson());
-    result.fold((failure) {
+    return result.fold((failure) {
       return left(failure);
     }, (response) {
       //user
-      StoreUser.setUser(UserModel.fromJson(response));
+      StoreUser.setUser(UserModel.fromJson(response["data"]));
       //token
-      getIt.get<TokenModel>().fromJson(response);
-      StoreToken.storeToken(TokenModel.fromJson(response));
+      getIt.get<TokenModel>().fromJson(response["data"]);
+      StoreToken.storeToken(getIt.get<TokenModel>());
       return right(null);
     });
-    return right(null);
   }
 }

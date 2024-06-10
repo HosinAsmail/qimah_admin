@@ -3,6 +3,8 @@ import 'package:url_launcher/url_launcher_string.dart';
 import 'package:qimah_admin/core/helper/functions/my_snack_bar.dart';
 
 class LaunchUrl {
+  LaunchUrl._();
+
   static void launchAnyUrl(String url) async {
     if (await canLaunchUrlString(url)) {
       await launchUrlString(url);
