@@ -11,8 +11,7 @@ class StoreUser {
   static UserModel? getUser() {
     String? jsonString = PrefStorage.get('userModel');
     if (jsonString != null) {
-      UserModel? user =
-          UserModel.fromJson(jsonDecode(jsonString));
+      UserModel? user = UserModel.fromJson(jsonDecode(jsonString));
       return user;
     }
     return null;

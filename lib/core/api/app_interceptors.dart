@@ -59,10 +59,13 @@ class AppInterceptors extends Interceptor {
   }
 
   Future<bool> refreshToken(TokenModel tokenModel) async {
-    final response = await dio.post(AppLinks.refreshTokenLink, data: {
-      "refresh_token": tokenModel.refreshToken,
-      // "expires": tokenModel.expires
-    },);
+    final response = await dio.post(
+      AppLinks.refreshTokenLink,
+      data: {
+        "refresh_token": tokenModel.refreshToken,
+        // "expires": tokenModel.expires
+      },
+    );
     if (response.statusCode == 200) {
       //token data
       tokenModel.accessToken = response.data["data"]["access_token"];

@@ -8,6 +8,8 @@ class AppRoute {
   static const verifyCodeScreen = '/verifyCode';
   static const resetPasswordScreen = '/resetPassword';
   static const successAuthScreen = '/successAuth';
+  // mosque:
+  static const createMosqueScreen = '/createMosqueScreen';
   //home:
   static const homeScreen = '/home';
 }

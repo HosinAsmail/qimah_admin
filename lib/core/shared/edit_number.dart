@@ -2,7 +2,7 @@ import 'package:qimah_admin/core/helper/functions/my_snack_bar.dart';
 import 'package:qimah_admin/core/helper/functions/valid_input_function.dart';
 import 'package:qimah_admin/core/shared/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
-import 'package:qimah_admin/core/constant/app_color.dart';
+import 'package:toastification/toastification.dart';
 
 class EditNumber extends StatelessWidget {
   EditNumber({
@@ -43,7 +43,7 @@ class EditNumber extends StatelessWidget {
               onPressed: () {
                 String? errorMessage =
                     validInput(numberController.text.trim(), 1, 50, 'number');
-                mySnackBar(AppColor.failure, 'خطأ', errorMessage ?? "");
+                mySnackBar(ToastificationType.error, 'خطأ', errorMessage ?? "");
               },
               child: Text('تعديل $mainText'))
         ],

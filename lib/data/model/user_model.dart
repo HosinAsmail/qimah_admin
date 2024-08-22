@@ -16,7 +16,7 @@ class UserModel extends Equatable {
   });
 
   // Static instance
-   static  UserModel instance=const UserModel._();
+  static UserModel instance = const UserModel._();
 
   // Factory constructor to provide the singleton instance
   factory UserModel.init() {

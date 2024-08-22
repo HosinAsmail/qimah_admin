@@ -4,6 +4,7 @@ import 'package:qimah_admin/core/api/api_service.dart';
 import 'package:get_it/get_it.dart';
 import 'package:qimah_admin/core/api/app_interceptors.dart';
 import 'package:qimah_admin/data/data%20source/repo/auth%20repo/auth_repo_imp.dart';
+import 'package:qimah_admin/data/data%20source/repo/mosque%20repo/mosque_repo_imp.dart';
 import 'package:qimah_admin/data/model/auth%20models/token_model.dart';
 
 final getIt = GetIt.instance;
@@ -24,6 +25,7 @@ void initGetIt() async {
   ));
   getIt.registerSingleton<ApiService>(ApiService(dio: getIt.get<Dio>()));
   getIt.registerSingleton<AuthRepoImpl>(AuthRepoImpl(getIt.get<ApiService>()));
+  getIt.registerSingleton<MosqueRepoImpl>(MosqueRepoImpl(getIt.get<ApiService>()));
 
   // getIt.registerSingleton<HomeRepoImpl>(HomeRepoImpl(
   // getIt.get<ApiService>(),

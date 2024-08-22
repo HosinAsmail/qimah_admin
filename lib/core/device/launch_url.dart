@@ -1,4 +1,4 @@
-import 'package:qimah_admin/core/constant/app_color.dart';
+import 'package:toastification/toastification.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:qimah_admin/core/helper/functions/my_snack_bar.dart';
 
@@ -9,7 +9,7 @@ class LaunchUrl {
     if (await canLaunchUrlString(url)) {
       await launchUrlString(url);
     } else {
-      mySnackBar(AppColor.failure, "خطأ", 'لا يمكن فتح  $url');
+      mySnackBar(ToastificationType.error, "خطأ", 'لا يمكن فتح  $url');
     }
   }
 

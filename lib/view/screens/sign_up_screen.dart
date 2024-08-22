@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:qimah_admin/bloc/sign%20up%20bloc/sign_up_bloc.dart';
+import 'package:qimah_admin/bloc/auth%20blocs/sign%20up%20bloc/sign_up_bloc.dart';
 import 'package:qimah_admin/core/constant/app_assets.dart';
 import 'package:qimah_admin/core/constant/app_color.dart';
 import 'package:qimah_admin/core/constant/app_routes.dart';
@@ -11,6 +11,7 @@ import 'package:qimah_admin/core/helper/functions/valid_input_function.dart';
 import 'package:qimah_admin/core/shared/buttons/custom_elevated_button.dart';
 import 'package:qimah_admin/core/shared/custom_image_view.dart';
 import 'package:qimah_admin/core/shared/custom_text_form_field.dart';
+import 'package:toastification/toastification.dart';
 import '../../core/helper/functions/my_snack_bar.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -27,11 +28,12 @@ class SignUpScreen extends StatelessWidget {
           listener: (context, state) {
             if (state is SignUpFailure) {
               closeLoadingDialog();
-              mySnackBar(AppColor.failure, "خطأ", state.errorMessage);
+              mySnackBar(ToastificationType.error, "خطأ", state.errorMessage);
             } else if (state is SignUpSuccess) {
               closeLoadingDialog();
-              Get.offAllNamed(AppRoute.loginScreen);
-              mySnackBar(AppColor.success, 'نجاح', 'تم  إنشاء الحساب');
+              Get.offAllNamed(AppRoute.createMosqueScreen);
+              mySnackBar(
+                  ToastificationType.success, 'نجاح', 'تم  إنشاء الحساب');
             } else if (state is SignUpLoading) {
               alertLoading();
             }

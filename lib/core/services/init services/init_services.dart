@@ -19,8 +19,6 @@ abstract class InitServices {
     }
   }
 
-
-
   static Future<void> testing() async {
     //$ testing:
     // StoreStep.setStep('1');
