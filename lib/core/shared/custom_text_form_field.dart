@@ -8,6 +8,7 @@ class CustomTextFormField extends StatefulWidget {
       this.alignment,
       this.onPressedIcon,
       this.width,
+      this.height,
       this.scrollPadding,
       this.controller,
       this.focusNode,
@@ -25,6 +26,7 @@ class CustomTextFormField extends StatefulWidget {
       this.contentPadding,
       this.textDirection,
       this.label,
+      this.labelStyle,
       this.obscureText = false,
       this.borderDecoration,
       this.fillColor,
@@ -36,6 +38,7 @@ class CustomTextFormField extends StatefulWidget {
   final void Function()? onPressedIcon;
 
   final double? width;
+  final double? height;
   final IconData? iconData;
   final TextEditingController? scrollPadding;
 
@@ -58,6 +61,7 @@ class CustomTextFormField extends StatefulWidget {
   final String? hintText;
 
   final TextStyle? hintStyle;
+  final TextStyle? labelStyle;
 
   final Widget? prefix;
 
@@ -102,6 +106,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 
   Widget textFormFieldWidget(BuildContext context) => SizedBox(
         width: widget.width ?? double.maxFinite,
+        height: widget.height,
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 0),
           child: Container(
@@ -112,7 +117,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                   color: Colors.grey.withOpacity(isShowingError ? 0 : 0.12),
                   spreadRadius: 5,
                   blurRadius: 8,
-                  offset: const Offset(0, 4),
+                  offset: const Offset(0, 0),
                 ),
               ],
             ),
@@ -120,7 +125,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               scrollPadding: EdgeInsets.only(
                   bottom: MediaQuery.of(context).viewInsets.bottom),
               controller: widget.controller,
-              textDirection: widget.textDirection,
+              textDirection: widget.textDirection ,
               focusNode: widget.focusNode,
               onTapOutside: (event) {
                 if (widget.focusNode != null) {
@@ -157,10 +162,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 
   InputDecoration decoration(context) => InputDecoration(
         label: widget.label == null ? null : Text(widget.label!),
-        labelStyle: Theme.of(context).textTheme.labelMedium,
+        labelStyle:widget.labelStyle ?? Theme.of(context).textTheme.labelMedium,
         hintText: widget.hintText ?? "",
         hintStyle: widget.hintStyle ?? Theme.of(context).textTheme.labelMedium,
         prefixIcon: widget.prefix,
+        alignLabelWithHint: true,
         prefixIconConstraints: widget.prefixConstraints,
         suffixIcon: widget.iconData == null
             ? null

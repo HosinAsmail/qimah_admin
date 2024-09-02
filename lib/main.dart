@@ -7,16 +7,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:qimah_admin/view/screens/login_screen.dart';
 
-void main() async {
+import 'view/screens/base/personal_screen.dart';
+import 'view/screens/base/Profile_screen.dart';
+
+void main()
+ async
+
+{
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = AppBlocObserver();
   await InitServices.init();
-  runApp(const QimahAdminApp());
+  runApp(QimahAdminApp());
 }
 
 class QimahAdminApp extends StatelessWidget {
-  const QimahAdminApp({super.key});
+  QimahAdminApp({super.key});
+  TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
