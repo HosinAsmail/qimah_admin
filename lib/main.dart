@@ -1,12 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:qimah_admin/core/services/init%20services/init_services.dart';
 import 'package:qimah_admin/core/theme/app_theme.dart';
 import 'package:qimah_admin/debug/app_bloc_observer.dart';
 import 'package:qimah_admin/generated/l10n.dart';
 import 'package:qimah_admin/routs.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:toastification/toastification.dart';
 
 void main() async {

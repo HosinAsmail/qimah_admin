@@ -11,7 +11,7 @@ class MyMiddleWare extends GetMiddleware {
   RouteSettings? redirect(String? route) {
     String? step = StoreStep.getStep();
     if (step == '1') {
-      return const RouteSettings(name: AppRoute.homeScreen);
+      return const RouteSettings(name: AppRoute.baseScreen);
     } else {
       return null;
     }

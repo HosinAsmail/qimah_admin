@@ -32,7 +32,7 @@ class LoginScreen extends StatelessWidget {
               mySnackBar(ToastificationType.error, "خطأ", state.errorMessage);
             } else if (state is LoginSuccess) {
               closeLoadingDialog();
-              Get.offAllNamed(AppRoute.homeScreen);
+              Get.offAllNamed(AppRoute.baseScreen);
               mySnackBar(ToastificationType.success, 'نجاح', 'تم تسجيل الدخول');
             } else if (state is LoginLoading) {
               alertLoading();

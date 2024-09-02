@@ -31,7 +31,7 @@ class CreateMosqueScreen extends StatelessWidget {
               mySnackBar(ToastificationType.error, "خطأ", state.errorMessage);
             } else if (state is CreateMosqueSuccess) {
               closeLoadingDialog();
-              Get.offAllNamed(AppRoute.homeScreen);
+              Get.offAllNamed(AppRoute.baseScreen);
               mySnackBar(
                   ToastificationType.success, 'نجاح', 'تم  إنشاء المسجد');
             } else if (state is CreateMosqueLoading) {

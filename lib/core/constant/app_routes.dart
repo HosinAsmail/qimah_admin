@@ -10,6 +10,7 @@ class AppRoute {
   static const successAuthScreen = '/successAuth';
   // mosque:
   static const createMosqueScreen = '/createMosqueScreen';
-  //home:
-  static const homeScreen = '/home';
+  //base:
+  static const baseScreen = '/base';
+  static const personalScreen = '/personal';
 }

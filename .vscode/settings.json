@@ -1,6 +1,13 @@
 {
     "cSpell.words": [
+<<<<<<< HEAD
         "qimah",
         "toastification"
     ]
+=======
+        "qimah"
+    ],
+    "CodeGPT.apiKey": "CodeGPT Plus Beta",
+    "cmake.ignoreCMakeListsMissing": true
+>>>>>>> deaf02b675eb7552f64e05cac2bc69eb5c34d865
 }
