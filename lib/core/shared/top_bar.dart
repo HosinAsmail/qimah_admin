@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:qimah_admin/core/constant/app_assets.dart';
 import 'package:qimah_admin/core/constant/app_color.dart';
 
@@ -42,7 +43,9 @@ class TopBar extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 25.0),
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Get.back();
+                },
                 child: Image.asset(
                   Assets.assetsImagesVectorNoBackground,
                   width: 25,

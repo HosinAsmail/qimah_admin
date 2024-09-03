@@ -8,7 +8,7 @@ class BottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 200,
+      height: 60,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [

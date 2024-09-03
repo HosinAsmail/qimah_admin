@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:qimah_admin/core/constant/app_assets.dart';
 import 'package:qimah_admin/core/shared/top_bar.dart';
 import 'package:qimah_admin/view/widget/profile/profile_item.dart';
+
+import 'personal_screen.dart';
+
+void _navigateToPersonalScreen() {
+  Get.to(() => const PersonalScreen());
+}
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -47,33 +54,41 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 const ProfileItem(
-                    title: 'الحساب الشخصي',
-                    iconPath: Assets.assetsImagesPerson),
+                  title: 'الحساب الشخصي',
+                  iconPath: Assets.assetsImagesPerson,
+                  ontap: _navigateToPersonalScreen,
+                ),
                 const ProfileItem(
                   title: 'الطلاب',
                   iconPath: Assets.assetsImagesTowPeople,
+                  ontap: _navigateToPersonalScreen,
                 ),
                 const ProfileItem(
                   title: 'الحلقات',
                   iconPath: Assets.assetsImagesThreePeople,
+                  ontap: _navigateToPersonalScreen,
                 ),
                 const ProfileItem(
                   title: 'المشرفين',
                   iconPath: Assets.assetsImagesSupervisor,
+                  ontap: _navigateToPersonalScreen,
                 ),
                 const ProfileItem(
                   title: 'المسابقات',
                   iconPath: Assets.assetsImagesStar,
+                  ontap: _navigateToPersonalScreen,
                 ),
                 const ProfileItem(
                   title: 'الدورات',
                   iconPath: Assets.assetsImagesPuzzle,
+                  ontap: _navigateToPersonalScreen,
                 ),
                 const ProfileItem(
                   title: 'تسجيل الخروج',
                   iconPath: Assets.assetsImagesLogout,
+                  ontap: _navigateToPersonalScreen,
                 ),
-                // const SizedBox(height: 50),
+                const SizedBox(height: 30),
               ],
             ),
           ),

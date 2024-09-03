@@ -9,7 +9,7 @@ class BaseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int initialIndex = 1; //Get.arguments['initialIndex'];
+    int initialIndex = 0; //Get.arguments['initialIndex'];
     return DefaultTabController(
       length: 4,
       initialIndex: initialIndex,
@@ -25,7 +25,7 @@ class BaseScreen extends StatelessWidget {
               ProfileScreen(),
               Text('NotificationScreen()'),
               Text('SearchScreen()'),
-              Text('SearchScreen()'),
+              Text('HomeScreen()'),
             ],
           ),
         ),

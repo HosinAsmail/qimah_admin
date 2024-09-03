@@ -63,7 +63,7 @@ class PersonalScreen extends StatelessWidget {
                                     width: 30,
                                     height: 30,
                                     child: Image.asset(
-                                      Assets.assetsImagesEdit,
+                                      Assets.assetsImagesEditSmall,
                                       // color: AppColor.secondaryColor,
                                     ),
                                   ),
@@ -83,18 +83,15 @@ class PersonalScreen extends StatelessWidget {
                       label: 'اسم الطالب الكامل',
                       hintText: "عمار محمد نعيم نشاوي",
                       prefix: Image.asset(
-                        Assets.assetsImagesPerson2,
+                        Assets.assetsImagesPersonSmall,
                       ),
-                      // hintStyle: TextStyle(color: Colors.grey.withOpacity(0.5)),
-                      // textStyle: TextStyle(fontSize: 15),
-                      // labelStyle: TextStyle(color: Colors.green),
                     ),
+                    const SizedBox(height: 15),
                     Row(
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.only(
-                                top: 15, bottom: 15, left: 8),
+                            padding: const EdgeInsets.only(left: 8),
                             child: CustomTextFormField(
                               keyboardType: TextInputType.number,
                               validator: (value) {
@@ -102,16 +99,12 @@ class PersonalScreen extends StatelessWidget {
                               },
                               label: "العمر",
                               hintText: "20",
-                              // hintStyle: TextStyle(
-                              //     color: Colors.grey.withOpacity(0.5)),
-                              // textStyle: TextStyle(fontSize: 15),
                             ),
                           ),
                         ),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.only(
-                                top: 15, bottom: 15, right: 8),
+                            padding: const EdgeInsets.only(right: 8),
                             child: CustomTextFormField(
                               keyboardType: TextInputType.datetime,
                               validator: (value) {
@@ -119,14 +112,12 @@ class PersonalScreen extends StatelessWidget {
                               },
                               label: "تاريخ الإضافة",
                               hintText: "00 / 00 / 2000",
-                              // hintStyle: TextStyle(
-                              //     color: Colors.grey.withOpacity(0.5)),
-                              // textStyle: TextStyle(fontSize: 15),
                             ),
                           ),
                         ),
                       ],
                     ),
+                    const SizedBox(height: 20),
                     CustomElevatedButton(
                       text: "تحديث بيانات الملف الشخصي",
                       onPressed: () {
@@ -136,25 +127,6 @@ class PersonalScreen extends StatelessWidget {
                         // }
                       },
                     ),
-                    // CustomElevatedButton(
-                    //   text: "تحديث بيانات الملف الشخصي",
-                    //   onPressed: () {},
-                    //   buttonStyle: ButtonStyle(
-                    //       backgroundColor:
-                    //           MaterialStateProperty.all(AppColor.primaryColor)),
-                    //   decoration: BoxDecoration(
-                    //     // color: Color.fromARGB(255, 18, 2, 2),
-                    //     borderRadius: BorderRadius.circular(10),
-                    //     boxShadow: [
-                    //       BoxShadow(
-                    //         color: Color.fromARGB(54, 158, 158, 158),
-                    //         spreadRadius: 5,
-                    //         blurRadius: 10,
-                    //         offset: Offset(0, 0), // يحدد اتجاه الظل
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
                   ],
                 ),
               ),
