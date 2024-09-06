@@ -15,86 +15,107 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: Column(
-              children: [
-                const SizedBox(height: 70),
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color.fromARGB(159, 158, 158, 158)
-                            .withOpacity(0.3),
-                        spreadRadius: 2,
-                        blurRadius: 10,
+    return SafeArea(
+      child: Stack(
+        children: [
+          SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Column(
+                children: [
+                  const SizedBox(height: 80),
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color.fromARGB(159, 158, 158, 158)
+                              .withOpacity(0.3),
+                          spreadRadius: 2,
+                          blurRadius: 10,
+                        ),
+                      ],
+                    ),
+                    child: const CircleAvatar(
+                      radius: 60,
+                      backgroundColor: Color.fromARGB(255, 225, 232, 235),
+                      child: Icon(
+                        Icons.person,
+                        size: 50,
                       ),
-                    ],
-                  ),
-                  child: const CircleAvatar(
-                    radius: 60,
-                    backgroundColor: Color.fromARGB(255, 225, 232, 235),
-                    child: Icon(
-                      Icons.person,
-                      size: 50,
                     ),
                   ),
-                ),
-                const SizedBox(height: 10),
-                const Text(
-                  'الاسم الكريم',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                  const SizedBox(height: 10),
+                  const Text(
+                    'الاسم الكريم',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 30),
-                const ProfileItem(
-                  title: 'الحساب الشخصي',
-                  iconPath: Assets.assetsImagesPerson,
-                  ontap: _navigateToPersonalScreen,
-                ),
-                const ProfileItem(
-                  title: 'الطلاب',
-                  iconPath: Assets.assetsImagesTowPeople,
-                  ontap: _navigateToPersonalScreen,
-                ),
-                const ProfileItem(
-                  title: 'الحلقات',
-                  iconPath: Assets.assetsImagesThreePeople,
-                  ontap: _navigateToPersonalScreen,
-                ),
-                const ProfileItem(
-                  title: 'المشرفين',
-                  iconPath: Assets.assetsImagesSupervisor,
-                  ontap: _navigateToPersonalScreen,
-                ),
-                const ProfileItem(
-                  title: 'المسابقات',
-                  iconPath: Assets.assetsImagesStar,
-                  ontap: _navigateToPersonalScreen,
-                ),
-                const ProfileItem(
-                  title: 'الدورات',
-                  iconPath: Assets.assetsImagesPuzzle,
-                  ontap: _navigateToPersonalScreen,
-                ),
-                const ProfileItem(
-                  title: 'تسجيل الخروج',
-                  iconPath: Assets.assetsImagesLogout,
-                  ontap: _navigateToPersonalScreen,
-                ),
-                const SizedBox(height: 30),
-              ],
+                  const SizedBox(height: 30),
+                  const ProfileItem(
+                    title: 'الحساب الشخصي',
+                    iconPath: Assets.assetsImagesPerson,
+                    ontap: _navigateToPersonalScreen,
+                  ),
+                  const ProfileItem(
+                    title: 'الطلاب',
+                    iconPath: Assets.assetsImagesTowPeople,
+                    ontap: _navigateToPersonalScreen,
+                  ),
+                  const ProfileItem(
+                    title: 'الحلقات',
+                    iconPath: Assets.assetsImagesThreePeople,
+                    ontap: _navigateToPersonalScreen,
+                  ),
+                  const ProfileItem(
+                    title: 'المشرفين',
+                    iconPath: Assets.assetsImagesSupervisor,
+                    ontap: _navigateToPersonalScreen,
+                  ),
+                  const ProfileItem(
+                    title: 'المسابقات',
+                    iconPath: Assets.assetsImagesStar,
+                    ontap: _navigateToPersonalScreen,
+                  ),
+                  const ProfileItem(
+                    title: 'الدورات',
+                    iconPath: Assets.assetsImagesPuzzle,
+                    ontap: _navigateToPersonalScreen,
+                  ),
+                  const ProfileItem(
+                    title: 'تسجيل الخروج',
+                    iconPath: Assets.assetsImagesLogout,
+                    ontap: _navigateToPersonalScreen,
+                  ),
+                  const SizedBox(height: 30),
+                ],
+              ),
             ),
           ),
-        ),
-        const TopBar(),
-      ],
+          TopBar(
+            leftIcon: InkWell(
+              onTap: () {
+                Get.back();
+              },
+              child: Image.asset(
+                Assets.assetsImagesVectorNoBackground,
+                width: 25,
+                height: 25,
+              ),
+            ),
+            rightIcon: InkWell(
+              onTap: () {},
+              child: Image.asset(
+                Assets.assetsImagesSettings,
+                width: 25,
+                height: 25,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

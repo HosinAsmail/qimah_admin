@@ -2,56 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:qimah_admin/core/constant/app_color.dart';
 
 class CustomTextFormField extends StatefulWidget {
-  const CustomTextFormField(
-      {super.key,
-      this.iconColor,
-      this.alignment,
-      this.onPressedIcon,
-      this.width,
-      this.height,
-      this.scrollPadding,
-      this.controller,
-      this.focusNode,
-      this.autoFocus = false,
-      this.textStyle,
-      this.textInputAction = TextInputAction.next,
-      this.keyboardType = TextInputType.text,
-      this.maxLines,
-      this.hintText,
-      this.hintStyle,
-      this.prefix,
-      this.prefixConstraints,
-      this.suffix,
-      this.suffixConstraints,
-      this.contentPadding,
-      this.textDirection,
-      this.label,
-      this.labelStyle,
-      this.obscureText = false,
-      this.borderDecoration,
-      this.fillColor,
-      this.iconData,
-      this.filled = true,
-      this.validator});
-
   final Alignment? alignment;
-  final void Function()? onPressedIcon;
 
+  final void Function()? onPressedIcon;
   final double? width;
+
   final double? height;
   final IconData? iconData;
   final TextEditingController? scrollPadding;
-
   final TextEditingController? controller;
 
   final FocusNode? focusNode;
+  final TextAlignVertical? textAlignVertical;
 
   final bool? autoFocus;
 
   final TextStyle? textStyle;
+
   final String? label;
   final bool obscureText;
-
   final TextInputAction? textInputAction;
 
   final TextInputType? keyboardType;
@@ -61,10 +30,11 @@ class CustomTextFormField extends StatefulWidget {
   final String? hintText;
 
   final TextStyle? hintStyle;
-  final TextStyle? labelStyle;
 
+  final TextStyle? labelStyle;
   final Widget? prefix;
 
+  final FloatingLabelBehavior? floatingLabelBehavior;
   final BoxConstraints? prefixConstraints;
 
   final Widget? suffix;
@@ -85,6 +55,40 @@ class CustomTextFormField extends StatefulWidget {
 
   final TextDirection? textDirection;
 
+  const CustomTextFormField(
+      {super.key,
+      this.iconColor,
+      this.alignment,
+      this.onPressedIcon,
+      this.width,
+      this.height,
+      this.scrollPadding,
+      this.controller,
+      this.focusNode,
+      this.autoFocus = false,
+      this.textStyle,
+      this.textInputAction = TextInputAction.next,
+      this.keyboardType = TextInputType.text,
+      this.maxLines,
+      this.hintText,
+      this.hintStyle,
+      this.floatingLabelBehavior,
+      this.prefix,
+      this.prefixConstraints,
+      this.suffix,
+      this.textAlignVertical,
+      this.suffixConstraints,
+      this.contentPadding,
+      this.textDirection,
+      this.label,
+      this.labelStyle,
+      this.obscureText = false,
+      this.borderDecoration,
+      this.fillColor,
+      this.iconData,
+      this.filled = true,
+      this.validator});
+
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
@@ -104,6 +108,62 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         : textFormFieldWidget(context);
   }
 
+  InputDecoration decoration(context) => InputDecoration(
+        label: widget.label == null ? null : Text(widget.label!),
+        floatingLabelBehavior:
+            widget.floatingLabelBehavior ?? FloatingLabelBehavior.auto,
+        labelStyle:
+            widget.labelStyle ?? Theme.of(context).textTheme.labelMedium,
+
+        // floatingLabelAlignment: FloatingLabelAlignment.center,
+        floatingLabelStyle: const TextStyle(color: Colors.yellow),
+
+        hintText: widget.hintText ?? "",
+        hintStyle: widget.hintStyle ?? Theme.of(context).textTheme.labelMedium,
+        prefixIcon: widget.prefix,
+        alignLabelWithHint: true,
+        prefixIconConstraints: widget.prefixConstraints,
+        suffixIcon: widget.iconData == null
+            ? null
+            : IconButton(
+                onPressed: widget.onPressedIcon == null
+                    ? null
+                    : () {
+                        setState(() {
+                          obscureText = !obscureText!;
+                        });
+                      },
+                icon: Icon(
+                  widget.iconData,
+                  color: widget.iconColor,
+                )),
+        suffixIconConstraints: widget.suffixConstraints,
+        isDense: true,
+        contentPadding: widget.contentPadding ??
+            const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 19,
+            ),
+
+        fillColor: widget.fillColor ?? AppColor.white,
+        filled: widget.filled,
+        border: widget.borderDecoration ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide.none,
+            ),
+        enabledBorder: widget.borderDecoration ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide.none,
+            ),
+        focusedBorder: widget.borderDecoration ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide.none,
+            ),
+      );
+
   Widget textFormFieldWidget(BuildContext context) => SizedBox(
         width: widget.width ?? double.maxFinite,
         height: widget.height,
@@ -122,10 +182,12 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               ],
             ),
             child: TextFormField(
+              textAlignVertical:
+                  widget.textAlignVertical ?? TextAlignVertical.center,
               scrollPadding: EdgeInsets.only(
                   bottom: MediaQuery.of(context).viewInsets.bottom),
               controller: widget.controller,
-              textDirection: widget.textDirection ,
+              textDirection: widget.textDirection,
               focusNode: widget.focusNode,
               onTapOutside: (event) {
                 if (widget.focusNode != null) {
@@ -158,53 +220,5 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             ),
           ),
         ),
-      );
-
-  InputDecoration decoration(context) => InputDecoration(
-        label: widget.label == null ? null : Text(widget.label!),
-        labelStyle:widget.labelStyle ?? Theme.of(context).textTheme.labelMedium,
-        hintText: widget.hintText ?? "",
-        hintStyle: widget.hintStyle ?? Theme.of(context).textTheme.labelMedium,
-        prefixIcon: widget.prefix,
-        alignLabelWithHint: true,
-        prefixIconConstraints: widget.prefixConstraints,
-        suffixIcon: widget.iconData == null
-            ? null
-            : IconButton(
-                onPressed: widget.onPressedIcon == null
-                    ? null
-                    : () {
-                        setState(() {
-                          obscureText = !obscureText!;
-                        });
-                      },
-                icon: Icon(
-                  widget.iconData,
-                  color: widget.iconColor,
-                )),
-        suffixIconConstraints: widget.suffixConstraints,
-        isDense: true,
-        contentPadding: widget.contentPadding ??
-            const EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 19,
-            ),
-        fillColor: widget.fillColor ?? AppColor.white,
-        filled: widget.filled,
-        border: widget.borderDecoration ??
-            OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide.none,
-            ),
-        enabledBorder: widget.borderDecoration ??
-            OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide.none,
-            ),
-        focusedBorder: widget.borderDecoration ??
-            OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide.none,
-            ),
       );
 }

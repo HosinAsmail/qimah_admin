@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:qimah_admin/core/constant/app_color.dart';
+
 import 'base_button.dart';
 
 class CustomElevatedButton extends BaseButton {
+  final BoxDecoration? decoration;
+
+  final Widget? leftIcon;
+
+  final Widget? rightIcon;
+
   const CustomElevatedButton(
       {super.key,
       this.decoration,
@@ -18,12 +25,6 @@ class CustomElevatedButton extends BaseButton {
       super.width,
       required super.text});
 
-  final BoxDecoration? decoration;
-
-  final Widget? leftIcon;
-
-  final Widget? rightIcon;
-
   @override
   Widget build(BuildContext context) {
     return alignment != null
@@ -34,7 +35,7 @@ class CustomElevatedButton extends BaseButton {
   }
 
   Widget buildElevatedButtonWidget(context) => Container(
-        height: height ?? 50,
+        height: height ?? 60,
         width: width ?? double.maxFinite,
         margin: margin,
         decoration: decoration,

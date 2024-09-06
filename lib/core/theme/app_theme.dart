@@ -20,7 +20,7 @@ class AppTheme {
     //   primaryContainer: Color(0XFFB3806D),
     //   onPrimary: Color(0XFFD9D9D9),
     // ),
-    fontFamily: 'Poppins',
+    fontFamily: 'Almarai',
     disabledColor: AppColor.grey,
     brightness: Brightness.light,
     primaryColor: AppColor.primaryColor,
@@ -37,7 +37,7 @@ class AppTheme {
 
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
-    fontFamily: 'Poppins',
+    fontFamily: 'Almarai',
     disabledColor: AppColor.grey,
     brightness: Brightness.dark,
     primaryColor: AppColor.primaryColor,
