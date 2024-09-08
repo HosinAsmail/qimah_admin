@@ -6,8 +6,31 @@ import 'package:qimah_admin/core/shared/top_bar.dart';
 import 'package:qimah_admin/view/widget/profile/profile_card.dart';
 
 class StudentsScreen extends StatelessWidget {
-  const StudentsScreen({super.key});
+  final List<Map<String, String>> studentsData = [
+    {
+      "title": "محمد أحمد",
+      "description": "هنا يكتب شرح بسيط عن انجاز الطالب لا يتجاوز العشر كلمات"
+    },
+    {
+      "title": "علي",
+      "description": "هنا يكتب شرح بسيط عن انجاز الطالب لا يتجاوز العشر كلمات"
+    },
+    {
+      "title": "خالد عمر",
+      "description": "هنا يكتب شرح بسيط عن انجاز الطالب لا يتجاوز العشر كلمات"
+    },
+    {
+      "title": "عبدالله محمود",
+      "description": "هنا يكتب شرح بسيط عن انجاز الطالب لا يتجاوز العشر كلمات"
+    },
+    {
+      "title": "حسن",
+      "description": "هنا يكتب شرح بسيط عن انجاز الطالب لا يتجاوز العشر كلمات"
+    },
 
+    // يمكنك إضافة المزيد من الحلقات هنا
+  ];
+  StudentsScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,12 +57,11 @@ class StudentsScreen extends StatelessWidget {
               ),
               Expanded(
                 child: ListView.builder(
-                  itemCount: 10, // Adjust this based on your actual data
+                  itemCount: studentsData.length,
                   itemBuilder: (context, index) {
-                    return const StudentCard(
-                      title: "اسم الطالب",
-                      description:
-                          'هنا يكتب شرح بسيط عن انجاز الطالب لا يتجاوز العشر كلمات',
+                    return StudentCard(
+                      title: studentsData[index]["title"]!,
+                      description: studentsData[index]["description"]!,
                     );
                   },
                 ),

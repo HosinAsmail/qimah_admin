@@ -6,8 +6,15 @@ import 'package:qimah_admin/core/shared/top_bar.dart';
 import 'package:qimah_admin/view/widget/profile/profile_card.dart';
 
 class RingsScreen extends StatelessWidget {
-  const RingsScreen({super.key});
-
+   RingsScreen({super.key});
+  final List<Map<String, String>> ringsData = [
+    {"title": "حلقة تحفيظ القرآن", "description": "الأستاذ محمد أحمد"},
+    {"title": "حلقة التجويد", "description": "الأستاذة فاطمة علي"},
+    {"title": "حلقة التفسير", "description": "الأستاذ خالد عمر"},
+    {"title": "حلقة السيرة النبوية", "description": "الأستاذ عبدالله محمود"},
+    {"title": "حلقة الفقه", "description": "الأستاذة زينب حسن"},
+    // يمكنك إضافة المزيد من الحلقات هنا
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,11 +41,11 @@ class RingsScreen extends StatelessWidget {
               ),
               Expanded(
                 child: ListView.builder(
-                  itemCount: 10, // Adjust this based on your actual data
+                  itemCount:ringsData.length, 
                   itemBuilder: (context, index) {
-                    return const StudentCard(
-                      title: "اسم الحلقة",
-                      description: "هنا يكتب اسم استاذ هذه الحلقة",
+                    return  StudentCard(
+                      title:ringsData[index]["title"]!,
+                      description: ringsData[index]["description"]!,
                     );
                   },
                 ),

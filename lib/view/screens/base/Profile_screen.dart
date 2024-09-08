@@ -9,7 +9,7 @@ import 'package:qimah_admin/view/screens/base/inside_profile/students_screen.dar
 import 'package:qimah_admin/view/widget/profile/profile_item.dart';
 
 void _navigateToBossesScreen() {
-  Get.to(() => const BossesScreen());
+  Get.to(() =>  BossesScreen());
 }
 
 void _navigateToPersonalScreen() {
@@ -17,11 +17,11 @@ void _navigateToPersonalScreen() {
 }
 
 void _navigateToRingsScreen() {
-  Get.to(() => const RingsScreen());
+  Get.to(() =>  RingsScreen());
 }
 
 void _navigateToStudentsScreen() {
-  Get.to(() => const StudentsScreen());
+  Get.to(() =>  StudentsScreen());
 }
 
 class ProfileScreen extends StatelessWidget {

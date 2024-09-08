@@ -6,8 +6,31 @@ import 'package:qimah_admin/core/shared/top_bar.dart';
 import 'package:qimah_admin/view/widget/profile/profile_card.dart';
 
 class BossesScreen extends StatelessWidget {
-  const BossesScreen({super.key});
+  final List<Map<String, String>> bossesData = [
+    {
+      "title": "الأستاذ محمد أحمد",
+      "description": "هنا يكتب مهمة المشرف في الدورة"
+    },
+    {
+      "title": "الأستاذة فاطمة علي",
+      "description": "هنا يكتب مهمة المشرف في الدورة"
+    },
+    {
+      "title": "الأستاذ خالد عمر",
+      "description": "هنا يكتب مهمة المشرف في الدورة"
+    },
+    {
+      "title": "الأستاذ عبدالله محمود",
+      "description": "هنا يكتب مهمة المشرف في الدورة"
+    },
+    {
+      "title": "الأستاذة زينب حسن",
+      "description": "هنا يكتب مهمة المشرف في الدورة"
+    },
 
+    // يمكنك إضافة المزيد من الحلقات هنا
+  ];
+  BossesScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,11 +57,11 @@ class BossesScreen extends StatelessWidget {
               ),
               Expanded(
                 child: ListView.builder(
-                  itemCount: 10, // Adjust this based on your actual data
+                  itemCount: bossesData.length,
                   itemBuilder: (context, index) {
-                    return const StudentCard(
-                      title: "اسم المشرف",
-                      description: "هنا يكتب مهمة المشرف في الدورة",
+                    return StudentCard(
+                      title: bossesData[index]["title"]!,
+                      description: bossesData[index]["description"]!,
                     );
                   },
                 ),
