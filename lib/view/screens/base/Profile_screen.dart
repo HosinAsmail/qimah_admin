@@ -2,12 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qimah_admin/core/constant/app_assets.dart';
 import 'package:qimah_admin/core/shared/top_bar.dart';
+import 'package:qimah_admin/view/screens/base/inside_profile/bosses_screen.dart';
+import 'package:qimah_admin/view/screens/base/inside_profile/personal_screen.dart';
+import 'package:qimah_admin/view/screens/base/inside_profile/rings_screen.dart';
+import 'package:qimah_admin/view/screens/base/inside_profile/students_screen.dart';
 import 'package:qimah_admin/view/widget/profile/profile_item.dart';
 
-import 'personal_screen.dart';
+void _navigateToBossesScreen() {
+  Get.to(() => const BossesScreen());
+}
 
 void _navigateToPersonalScreen() {
   Get.to(() => const PersonalScreen());
+}
+
+void _navigateToRingsScreen() {
+  Get.to(() => const RingsScreen());
+}
+
+void _navigateToStudentsScreen() {
+  Get.to(() => const StudentsScreen());
 }
 
 class ProfileScreen extends StatelessWidget {
@@ -62,17 +76,17 @@ class ProfileScreen extends StatelessWidget {
                   const ProfileItem(
                     title: 'الطلاب',
                     iconPath: Assets.assetsImagesTowPeople,
-                    ontap: _navigateToPersonalScreen,
+                    ontap: _navigateToStudentsScreen,
                   ),
                   const ProfileItem(
                     title: 'الحلقات',
                     iconPath: Assets.assetsImagesThreePeople,
-                    ontap: _navigateToPersonalScreen,
+                    ontap: _navigateToRingsScreen,
                   ),
                   const ProfileItem(
                     title: 'المشرفين',
                     iconPath: Assets.assetsImagesSupervisor,
-                    ontap: _navigateToPersonalScreen,
+                    ontap: _navigateToBossesScreen,
                   ),
                   const ProfileItem(
                     title: 'المسابقات',

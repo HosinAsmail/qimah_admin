@@ -114,10 +114,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             widget.floatingLabelBehavior ?? FloatingLabelBehavior.auto,
         labelStyle:
             widget.labelStyle ?? Theme.of(context).textTheme.labelMedium,
-
-        // floatingLabelAlignment: FloatingLabelAlignment.center,
-        floatingLabelStyle: const TextStyle(color: Colors.yellow),
-
+        floatingLabelStyle: const TextStyle(color: Colors.grey),
         hintText: widget.hintText ?? "",
         hintStyle: widget.hintStyle ?? Theme.of(context).textTheme.labelMedium,
         prefixIcon: widget.prefix,
@@ -144,7 +141,6 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               horizontal: 16,
               vertical: 19,
             ),
-
         fillColor: widget.fillColor ?? AppColor.white,
         filled: widget.filled,
         border: widget.borderDecoration ??

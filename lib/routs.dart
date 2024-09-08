@@ -11,7 +11,7 @@ import 'package:qimah_admin/core/middleware/my_middleware.dart';
 import 'package:qimah_admin/data/data%20source/repo/auth%20repo/auth_repo_imp.dart';
 import 'package:qimah_admin/data/data%20source/repo/mosque%20repo/mosque_repo_imp.dart';
 import 'package:qimah_admin/view/screens/base/base_screen.dart';
-import 'package:qimah_admin/view/screens/base/personal_screen.dart';
+import 'package:qimah_admin/view/screens/base/inside_profile/personal_screen.dart';
 import 'package:qimah_admin/view/screens/create_mosque_screen.dart';
 import 'package:qimah_admin/view/screens/login_screen.dart';
 import 'package:qimah_admin/view/screens/sign_up_screen.dart';
