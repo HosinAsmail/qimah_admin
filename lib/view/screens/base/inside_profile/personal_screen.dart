@@ -80,7 +80,7 @@ class PersonalScreen extends StatelessWidget {
                         textAlignVertical: TextAlignVertical.bottom,
                         // textStyle: const TextStyle(fontSize: 13),
                         contentPadding:
-                            const EdgeInsets.fromLTRB(20, 40, 25, 26),
+                            const EdgeInsets.fromLTRB(20, 45, 25, 24),
                         keyboardType: TextInputType.name,
                         validator: (value) {
                           return null;

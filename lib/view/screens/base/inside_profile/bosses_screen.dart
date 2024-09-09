@@ -39,7 +39,7 @@ class BossesScreen extends StatelessWidget {
         children: [
           Column(
             children: [
-              const SizedBox(height: 80),
+              const SizedBox(height: 100),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: CustomTextFormField(

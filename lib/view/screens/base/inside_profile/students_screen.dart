@@ -27,7 +27,30 @@ class StudentsScreen extends StatelessWidget {
       "title": "حسن",
       "description": "هنا يكتب شرح بسيط عن انجاز الطالب لا يتجاوز العشر كلمات"
     },
-
+    {
+      "title": "حسن",
+      "description": "هنا يكتب شرح بسيط عن انجاز الطالب لا يتجاوز العشر كلمات"
+    },
+    {
+      "title": "حسن",
+      "description": "هنا يكتب شرح بسيط عن انجاز الطالب لا يتجاوز العشر كلمات"
+    },
+    {
+      "title": "حسن",
+      "description": "هنا يكتب شرح بسيط عن انجاز الطالب لا يتجاوز العشر كلمات"
+    },
+    {
+      "title": "حسن",
+      "description": "هنا يكتب شرح بسيط عن انجاز الطالب لا يتجاوز العشر كلمات"
+    },
+    {
+      "title": "حسن",
+      "description": "هنا يكتب شرح بسيط عن انجاز الطالب لا يتجاوز العشر كلمات"
+    },
+    {
+      "title": "حسن",
+      "description": "هنا يكتب شرح بسيط عن انجاز الطالب لا يتجاوز العشر كلمات"
+    },
     // يمكنك إضافة المزيد من الحلقات هنا
   ];
   StudentsScreen({super.key});
@@ -39,7 +62,7 @@ class StudentsScreen extends StatelessWidget {
         children: [
           Column(
             children: [
-              const SizedBox(height: 80),
+              const SizedBox(height: 100),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: CustomTextFormField(
