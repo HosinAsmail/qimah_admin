@@ -13,4 +13,7 @@ class AppRoute {
   //base:
   static const baseScreen = '/base';
   static const personalScreen = '/personal';
+  static const groupsScreen = '/groups';
+  static const bossesScreen = '/bosses';
+  static const studentsScreen = '/students';
 }

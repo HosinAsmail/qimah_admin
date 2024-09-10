@@ -1,28 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qimah_admin/core/constant/app_assets.dart';
+import 'package:qimah_admin/core/constant/app_routes.dart';
 import 'package:qimah_admin/core/shared/top_bar.dart';
-import 'package:qimah_admin/view/screens/base/inside_profile/bosses_screen.dart';
-import 'package:qimah_admin/view/screens/base/inside_profile/personal_screen.dart';
-import 'package:qimah_admin/view/screens/base/inside_profile/rings_screen.dart';
-import 'package:qimah_admin/view/screens/base/inside_profile/students_screen.dart';
 import 'package:qimah_admin/view/widget/profile/profile_item.dart';
-
-void _navigateToBossesScreen() {
-  Get.to(() =>  BossesScreen());
-}
-
-void _navigateToPersonalScreen() {
-  Get.to(() => const PersonalScreen());
-}
-
-void _navigateToRingsScreen() {
-  Get.to(() =>  RingsScreen());
-}
-
-void _navigateToStudentsScreen() {
-  Get.to(() =>  StudentsScreen());
-}
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -68,40 +49,50 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 30),
-                  const ProfileItem(
+                  ProfileItem(
                     title: 'الحساب الشخصي',
                     iconPath: Assets.assetsImagesPerson,
-                    ontap: _navigateToPersonalScreen,
+                    onTap: () {
+                      Get.toNamed(AppRoute.personalScreen);
+                    },
                   ),
-                  const ProfileItem(
+                  ProfileItem(
                     title: 'الطلاب',
                     iconPath: Assets.assetsImagesTowPeople,
-                    ontap: _navigateToStudentsScreen,
+                    onTap: () {
+                      Get.toNamed(AppRoute.studentsScreen);
+                    },
                   ),
-                  const ProfileItem(
+                  ProfileItem(
                     title: 'الحلقات',
                     iconPath: Assets.assetsImagesThreePeople,
-                    ontap: _navigateToRingsScreen,
+                    onTap: () {
+                      Get.toNamed(AppRoute.groupsScreen);
+                    },
                   ),
-                  const ProfileItem(
+                  ProfileItem(
                     title: 'المشرفين',
                     iconPath: Assets.assetsImagesSupervisor,
-                    ontap: _navigateToBossesScreen,
+                    onTap: () {
+                      Get.toNamed(AppRoute.bossesScreen);
+                    },
                   ),
-                  const ProfileItem(
+                  ProfileItem(
                     title: 'المسابقات',
                     iconPath: Assets.assetsImagesStar,
-                    ontap: _navigateToPersonalScreen,
+                    onTap: () {
+                      Get.toNamed(AppRoute.personalScreen);
+                    },
                   ),
-                  const ProfileItem(
+                  ProfileItem(
                     title: 'الدورات',
                     iconPath: Assets.assetsImagesPuzzle,
-                    ontap: _navigateToPersonalScreen,
+                    onTap: () {},
                   ),
-                  const ProfileItem(
+                  ProfileItem(
                     title: 'تسجيل الخروج',
                     iconPath: Assets.assetsImagesLogout,
-                    ontap: _navigateToPersonalScreen,
+                    onTap: () {},
                   ),
                   const SizedBox(height: 30),
                 ],
@@ -109,16 +100,6 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           TopBar(
-            leftIcon: InkWell(
-              onTap: () {
-                Get.back();
-              },
-              child: Image.asset(
-                Assets.assetsImagesVectorNoBackground,
-                width: 25,
-                height: 25,
-              ),
-            ),
             rightIcon: InkWell(
               onTap: () {},
               child: Image.asset(

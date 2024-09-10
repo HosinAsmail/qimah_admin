@@ -11,8 +11,8 @@ class TopBar extends StatelessWidget {
       {super.key,
       this.text,
       this.titleTextStyle,
-      required this.leftIcon,
-      required this.rightIcon});
+      this.leftIcon,
+      this.rightIcon});
   @override
   Widget build(BuildContext context) {
     return Container(

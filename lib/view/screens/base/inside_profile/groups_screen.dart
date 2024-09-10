@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qimah_admin/core/constant/app_assets.dart';
-import 'package:qimah_admin/core/shared/custom_text_form_field.dart';
+import 'package:qimah_admin/core/shared/search_text_field.dart';
 import 'package:qimah_admin/core/shared/top_bar.dart';
 import 'package:qimah_admin/view/widget/profile/profile_card.dart';
 
-class RingsScreen extends StatelessWidget {
-  final List<Map<String, String>> ringsData = [
+class GroupsScreen extends StatelessWidget {
+  final List<Map<String, String>> GroupsData = [
     {"title": "حلقة تحفيظ القرآن", "description": "الأستاذ محمد أحمد"},
     {"title": "حلقة التجويد", "description": "الأستاذة فاطمة علي"},
     {"title": "حلقة التفسير", "description": "الأستاذ خالد عمر"},
@@ -14,7 +14,7 @@ class RingsScreen extends StatelessWidget {
     {"title": "حلقة الفقه", "description": "الأستاذة زينب حسن"},
     // يمكنك إضافة المزيد من الحلقات هنا
   ];
-  RingsScreen({super.key});
+  GroupsScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,28 +24,14 @@ class RingsScreen extends StatelessWidget {
           Column(
             children: [
               const SizedBox(height: 100),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: CustomTextFormField(
-                  borderDecoration: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide.none,
-                  ),
-                  textDirection: TextDirection.rtl,
-                  validator: (value) {
-                    return null;
-                  },
-                  label: 'ابحث هنا...',
-                  iconData: Icons.search,
-                ),
-              ),
+              const SearchTextField(),
               Expanded(
                 child: ListView.builder(
-                  itemCount: ringsData.length,
+                  itemCount: GroupsData.length,
                   itemBuilder: (context, index) {
                     return StudentCard(
-                      title: ringsData[index]["title"]!,
-                      description: ringsData[index]["description"]!,
+                      title: GroupsData[index]["title"]!,
+                      description: GroupsData[index]["description"]!,
                     );
                   },
                 ),

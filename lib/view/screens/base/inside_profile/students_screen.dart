@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qimah_admin/core/constant/app_assets.dart';
-import 'package:qimah_admin/core/shared/custom_text_form_field.dart';
+import 'package:qimah_admin/core/shared/search_text_field.dart';
 import 'package:qimah_admin/core/shared/top_bar.dart';
 import 'package:qimah_admin/view/widget/profile/profile_card.dart';
 
@@ -63,21 +63,7 @@ class StudentsScreen extends StatelessWidget {
           Column(
             children: [
               const SizedBox(height: 100),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: CustomTextFormField(
-                  borderDecoration: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide.none,
-                  ),
-                  textDirection: TextDirection.rtl,
-                  validator: (value) {
-                    return null;
-                  },
-                  label: 'ابحث هنا...',
-                  iconData: Icons.search,
-                ),
-              ),
+              const SearchTextField(),
               Expanded(
                 child: ListView.builder(
                   itemCount: studentsData.length,

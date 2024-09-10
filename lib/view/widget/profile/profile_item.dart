@@ -5,33 +5,33 @@ import 'package:qimah_admin/core/constant/app_color.dart';
 class ProfileItem extends StatelessWidget {
   final String title;
   final String iconPath;
-  final VoidCallback? ontap;
+  final VoidCallback? onTap;
   const ProfileItem({
     super.key,
     required this.title,
     required this.iconPath,
-    required this.ontap,
+    required this.onTap,
   });
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(30),
-      onTap: ontap ?? () {},
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 6),
-        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-        decoration: BoxDecoration(
-          color: AppColor.whiteBlackSame,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: const [
-            BoxShadow(
-              color: Color.fromARGB(54, 158, 158, 158),
-              spreadRadius: 2,
-              blurRadius: 10,
-              offset: Offset(0, 0),
-            ),
-          ],
-        ),
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 6),
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+      decoration: BoxDecoration(
+        color: AppColor.whiteBlackSame,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: const [
+          BoxShadow(
+            color: Color.fromARGB(54, 158, 158, 158),
+            spreadRadius: 2,
+            blurRadius: 10,
+            offset: Offset(0, 0),
+          ),
+        ],
+      ),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(30),
+        onTap: onTap ?? () {},
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
