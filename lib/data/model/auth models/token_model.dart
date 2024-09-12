@@ -9,8 +9,8 @@ class TokenModel {
 
   // method to create a Token from a JSON map
   TokenModel fromJson(Map<String, dynamic> json) {
-    accessToken = json['access_token'];
-    refreshToken = json['refresh_token'];
+    accessToken = json['accessToken'];
+    refreshToken = json['refreshToken'];
     expires = json['expires'];
     return this;
   }
@@ -18,8 +18,8 @@ class TokenModel {
   // Method to convert a Token to a JSON map
   Map<String, dynamic> toJson() {
     return {
-      'access_token': accessToken,
-      'refresh_token': refreshToken,
+      'accessToken': accessToken,
+      'refreshToken': refreshToken,
       'expires': expires,
     };
   }

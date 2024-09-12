@@ -10,8 +10,10 @@ import 'package:qimah_admin/core/helper/functions/valid_input_function.dart';
 import 'package:qimah_admin/core/shared/buttons/custom_elevated_button.dart';
 import 'package:qimah_admin/core/shared/custom_image_view.dart';
 import 'package:qimah_admin/core/shared/custom_text_form_field.dart';
+import 'package:qimah_admin/data/data%20source/locale/store_step.dart';
 import 'package:qimah_admin/view/widget/mosque/choose_gender_radio_button.dart';
 import 'package:toastification/toastification.dart';
+
 import '../../core/helper/functions/my_snack_bar.dart';
 
 class CreateMosqueScreen extends StatelessWidget {
@@ -32,6 +34,7 @@ class CreateMosqueScreen extends StatelessWidget {
             } else if (state is CreateMosqueSuccess) {
               closeLoadingDialog();
               Get.offAllNamed(AppRoute.baseScreen);
+              StoreStep.setStep("2");
               mySnackBar(
                   ToastificationType.success, 'نجاح', 'تم  إنشاء المسجد');
             } else if (state is CreateMosqueLoading) {

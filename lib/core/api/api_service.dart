@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:qimah_admin/core/device/device_utility.dart';
 import 'package:qimah_admin/core/errors/failures.dart';
 import 'package:qimah_admin/core/helper/functions/init_get_it.dart';
+
 import 'api_consumer.dart';
 import 'app_interceptors.dart';
 
