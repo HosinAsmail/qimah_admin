@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:qimah_admin/core/constant/app_assets.dart';
 import 'package:qimah_admin/core/constant/app_color.dart';
+import 'package:qimah_admin/core/constant/app_int.dart';
 import 'package:qimah_admin/core/shared/buttons/custom_elevated_button.dart';
 import 'package:qimah_admin/core/shared/custom_text_form_field.dart';
 import 'package:qimah_admin/core/shared/top_bar.dart';
@@ -17,7 +17,7 @@ class PersonalScreen extends StatelessWidget {
         children: [
           SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(18.0),
+              padding: const EdgeInsets.all(AppInt.horizontalPadding),
               child: Column(
                 children: [
                   const SizedBox(height: 100),
@@ -186,26 +186,8 @@ class PersonalScreen extends StatelessWidget {
               ),
             ),
           ),
-          TopBar(
+          const TopBar(
             text: 'الحساب الشخصي',
-            leftIcon: InkWell(
-              onTap: () {
-                Get.back();
-              },
-              child: Image.asset(
-                Assets.assetsImagesVectorNoBackground,
-                width: 25,
-                height: 25,
-              ),
-            ),
-            rightIcon: InkWell(
-              onTap: () {},
-              child: Image.asset(
-                Assets.assetsImagesSettings,
-                width: 25,
-                height: 25,
-              ),
-            ),
           ),
         ],
       ),

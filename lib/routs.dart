@@ -10,11 +10,12 @@ import 'package:qimah_admin/core/helper/functions/init_get_it.dart';
 import 'package:qimah_admin/core/middleware/my_middleware.dart';
 import 'package:qimah_admin/data/data%20source/repo/auth%20repo/auth_repo_imp.dart';
 import 'package:qimah_admin/data/data%20source/repo/mosque%20repo/mosque_repo_imp.dart';
+import 'package:qimah_admin/view/screens/base/Adds/add_students_screen.dart';
+import 'package:qimah_admin/view/screens/base/Profile/bosses_screen.dart';
+import 'package:qimah_admin/view/screens/base/Profile/groups_screen.dart';
+import 'package:qimah_admin/view/screens/base/Profile/personal_screen.dart';
+import 'package:qimah_admin/view/screens/base/Profile/students_screen.dart';
 import 'package:qimah_admin/view/screens/base/base_screen.dart';
-import 'package:qimah_admin/view/screens/base/inside_profile/bosses_screen.dart';
-import 'package:qimah_admin/view/screens/base/inside_profile/groups_screen.dart';
-import 'package:qimah_admin/view/screens/base/inside_profile/personal_screen.dart';
-import 'package:qimah_admin/view/screens/base/inside_profile/students_screen.dart';
 import 'package:qimah_admin/view/screens/create_mosque_screen.dart';
 import 'package:qimah_admin/view/screens/login_screen.dart';
 import 'package:qimah_admin/view/screens/sign_up_screen.dart';
@@ -66,6 +67,11 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
       name: AppRoute.studentsScreen,
       page: () => StudentsScreen(),
+      transition: transition.Transition.upToDown,
+      transitionDuration: const Duration(milliseconds: 400)),
+  GetPage(
+      name: AppRoute.addStudentsScreen,
+      page: () => const AddStudentsScreen(),
       transition: transition.Transition.upToDown,
       transitionDuration: const Duration(milliseconds: 400)),
 ];

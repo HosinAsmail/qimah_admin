@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:qimah_admin/core/constant/app_assets.dart';
 import 'package:qimah_admin/core/shared/search_text_field.dart';
 import 'package:qimah_admin/core/shared/top_bar.dart';
 import 'package:qimah_admin/view/widget/profile/profile_card.dart';
@@ -54,26 +52,8 @@ class BossesScreen extends StatelessWidget {
               ),
             ],
           ),
-          TopBar(
+          const TopBar(
             text: "المشرفين",
-            leftIcon: InkWell(
-              onTap: () {
-                Get.back();
-              },
-              child: Image.asset(
-                Assets.assetsImagesVectorNoBackground,
-                width: 25,
-                height: 25,
-              ),
-            ),
-            rightIcon: InkWell(
-              onTap: () {},
-              child: Image.asset(
-                Assets.assetsImagesSettings,
-                width: 25,
-                height: 25,
-              ),
-            ),
           ),
         ],
       ),

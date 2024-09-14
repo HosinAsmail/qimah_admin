@@ -16,4 +16,5 @@ class AppRoute {
   static const groupsScreen = '/groups';
   static const bossesScreen = '/bosses';
   static const studentsScreen = '/students';
+  static const addStudentsScreen = '/addStudents';
 }

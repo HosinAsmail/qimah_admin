@@ -2,7 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:qimah_admin/core/shared/bottom_bar.dart';
-import 'package:qimah_admin/view/screens/base/profile_screen.dart';
+import 'package:qimah_admin/view/screens/base/profile/Profile_screen.dart';
+
 
 class BaseScreen extends StatelessWidget {
   const BaseScreen({super.key});
