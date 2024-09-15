@@ -17,7 +17,7 @@ class StudentCard extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(25)),
           boxShadow: [
             BoxShadow(
-              color: const Color.fromARGB(159, 199, 199, 199).withOpacity(0.3),
+              color: AppColor.shadow,
               spreadRadius: 2,
               blurRadius: 10,
             ),

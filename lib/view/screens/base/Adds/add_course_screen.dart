@@ -5,8 +5,8 @@ import 'package:qimah_admin/core/shared/buttons/custom_elevated_button.dart';
 import 'package:qimah_admin/core/shared/custom_text_form_field.dart';
 import 'package:qimah_admin/core/shared/top_bar.dart';
 
-class AddStudentsScreen extends StatelessWidget {
-  const AddStudentsScreen({super.key});
+class AddCourseScreen extends StatelessWidget {
+  const AddCourseScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -68,9 +68,9 @@ class AddStudentsScreen extends StatelessWidget {
                     validator: (value) {
                       return null;
                     },
-                    hintText: 'أدخل الاسم',
+                    hintText: 'أدخل اسم الدورة',
                     label: 'الاسم',
-                    iconData: Icons.person,
+                    iconData: Icons.group,
                   ),
                   const SizedBox(height: 16),
                   CustomTextFormField(
@@ -78,49 +78,13 @@ class AddStudentsScreen extends StatelessWidget {
                     validator: (value) {
                       return null;
                     },
-                    hintText: "أدخل اسم الأب",
-                    label: "اسم الأب",
-                    iconData: Icons.person_4,
-                  ),
-                  const SizedBox(height: 16),
-                  CustomTextFormField(
-                    keyboardType: TextInputType.number,
-                    validator: (value) {
-                      return null;
-                    },
-                    hintText: 'أدخل رقم الهاتف',
-                    label: 'رقم الهاتف',
-                    iconData: Icons.numbers,
-                  ),
-                  const SizedBox(height: 16),
-                  CustomTextFormField(
-                    // controller: loginBloc.emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    textDirection: TextDirection.ltr,
-                    validator: (value) {
-                      return null;
-                    },
-                    hintText: "أدخل البريد الالكتروني",
-                    label: "البريد الالكتروني",
-                    iconData: Icons.email_outlined,
-                  ),
-                  const SizedBox(height: 16),
-                  CustomTextFormField(
-                    // controller: loginBloc.passwordController,
-                    obscureText: true,
-                    onPressedIcon: () {},
-                    keyboardType: TextInputType.visiblePassword,
-                    textDirection: TextDirection.ltr,
-                    validator: (value) {
-                      return null;
-                    },
-                    hintText: 'أدخل كلمة السر',
-                    label: 'كلمة السر',
-                    iconData: Icons.lock_outline,
+                    hintText: 'أدخل وصف الدورة',
+                    label: 'وصف الدورة',
+                    iconData: Icons.description,
                   ),
                   const SizedBox(height: 16),
                   CustomElevatedButton(
-                    text: "إضافة الطالب",
+                    text: "إضافة الدورة",
                     onPressed: () {
                       return;
                     },
@@ -131,7 +95,7 @@ class AddStudentsScreen extends StatelessWidget {
             ),
           ),
           const TopBar(
-            text: "إضافة طالب",
+            text: "إضافة الدورة",
           ),
         ],
       ),

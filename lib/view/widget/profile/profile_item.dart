@@ -21,12 +21,12 @@ class ProfileItem extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColor.whiteBlackSame,
           borderRadius: BorderRadius.circular(20),
-          boxShadow: const [
+          boxShadow: [
             BoxShadow(
-              color: Color.fromARGB(54, 158, 158, 158),
+              color: AppColor.shadow,
               spreadRadius: 2,
               blurRadius: 10,
-              offset: Offset(0, 0),
+              offset: const Offset(0, 0),
             ),
           ],
         ),
