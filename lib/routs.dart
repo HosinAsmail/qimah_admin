@@ -63,7 +63,6 @@ List<GetPage<dynamic>>? routes = [
       page: () => const BaseScreen(),
       transition: transition.Transition.zoom,
       transitionDuration: const Duration(milliseconds: 400)),
-  
   GetPage(
       name: AppRoute.bossesScreen,
       page: () => BossesScreen(),

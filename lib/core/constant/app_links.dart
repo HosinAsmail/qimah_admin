@@ -10,5 +10,10 @@ class AppLinks {
   //-------------------------mosque------------------------/
   static const String mosqueLink = '$serverLink/mosque';
   // static const String createMosqueLink = '$mosqueLink/register';
-
+  //-------------------------course------------------------/
+  static const String coursesLink = '$serverLink/courses';
+  static const String addCoursesLink = '$coursesLink/course';
+  static const String editCoursesLink = '$coursesLink/course';
+  static const String deleteCoursesLink = '$coursesLink/';
+  static const String getCoursesLink = '$coursesLink/courses/';
 }

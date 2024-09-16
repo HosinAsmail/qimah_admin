@@ -25,7 +25,8 @@ void initGetIt() async {
   ));
   getIt.registerSingleton<ApiService>(ApiService(dio: getIt.get<Dio>()));
   getIt.registerSingleton<AuthRepoImpl>(AuthRepoImpl(getIt.get<ApiService>()));
-  getIt.registerSingleton<MosqueRepoImpl>(MosqueRepoImpl(getIt.get<ApiService>()));
+  getIt.registerSingleton<MosqueRepoImpl>(
+      MosqueRepoImpl(getIt.get<ApiService>()));
 
   // getIt.registerSingleton<HomeRepoImpl>(HomeRepoImpl(
   // getIt.get<ApiService>(),
