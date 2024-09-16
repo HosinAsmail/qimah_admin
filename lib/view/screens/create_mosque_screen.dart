@@ -95,7 +95,7 @@ class CreateMosqueScreen extends StatelessWidget {
                     },
                     hintText: 'أدخل اسم الدورة',
                     label: 'اسم الدورة',
-                    iconData: Icons.lock_outline,
+                    iconData: Icons.description,
                   ),
                   const SizedBox(height: 16),
                   const ChooseGenderRadioButton(),

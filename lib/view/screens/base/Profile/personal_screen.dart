@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:qimah_admin/core/constant/app_assets.dart';
 import 'package:qimah_admin/core/constant/app_color.dart';
+import 'package:qimah_admin/core/constant/app_int.dart';
 import 'package:qimah_admin/core/shared/buttons/custom_elevated_button.dart';
 import 'package:qimah_admin/core/shared/custom_text_form_field.dart';
 import 'package:qimah_admin/core/shared/top_bar.dart';
@@ -17,24 +17,23 @@ class PersonalScreen extends StatelessWidget {
         children: [
           SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(18.0),
+              padding: const EdgeInsets.all(AppInt.horizontalPadding),
               child: Column(
                 children: [
-                  const SizedBox(height: 100),
+                  const SizedBox(height: 130),
                   Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: const Color.fromARGB(159, 158, 158, 158)
-                              .withOpacity(0.3),
+                          color: AppColor.shadow,
                           spreadRadius: 2,
                           blurRadius: 10,
                         ),
                       ],
                     ),
                     child: CircleAvatar(
-                      radius: 60,
+                      radius: 65,
                       backgroundColor: Colors.grey,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -42,28 +41,36 @@ class PersonalScreen extends StatelessWidget {
                           Column(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              InkWell(
-                                // borderRadius:
-                                //     BorderRadius.all(Radius.circular(10)),
-                                onTap: () {},
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: AppColor.primaryColor,
-                                    shape: BoxShape.circle,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: const Color.fromARGB(
-                                                159, 158, 158, 158)
-                                            .withOpacity(0.3),
-                                        spreadRadius: 2,
-                                        blurRadius: 10,
-                                      ),
-                                    ],
-                                  ),
-                                  width: 36,
-                                  child: Image.asset(
-                                    Assets.assetsImagesEdit,
-                                    // color: AppColor.secondaryColor,
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: AppColor.primaryColor,
+                                  shape: BoxShape.circle,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: AppColor.shadow,
+                                      spreadRadius: 2,
+                                      blurRadius: 10,
+                                    ),
+                                  ],
+                                ),
+                                width: 38,
+                                height: 38,
+                                child: Material(
+                                  color: const Color.fromARGB(0, 158, 158, 158),
+                                  child: InkWell(
+                                    borderRadius: BorderRadius.circular(20),
+                                    splashColor: const Color.fromARGB(
+                                        162, 255, 255, 255),
+                                    onTap: () {},
+                                    child: const Icon(
+                                      Icons.edit_rounded,
+                                      color: Colors.white,
+                                      size: 20,
+                                    ),
+                                    // Image.asset(
+                                    //   Assets.assetsImagesEdit,
+                                    //   // color: AppColor.secondaryColor,
+                                    // ),
                                   ),
                                 ),
                               ),
@@ -73,12 +80,11 @@ class PersonalScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 60),
                   Stack(
                     children: [
                       CustomTextFormField(
                         textAlignVertical: TextAlignVertical.bottom,
-                        // textStyle: const TextStyle(fontSize: 13),
                         contentPadding:
                             const EdgeInsets.fromLTRB(20, 45, 25, 24),
                         keyboardType: TextInputType.name,
@@ -186,26 +192,8 @@ class PersonalScreen extends StatelessWidget {
               ),
             ),
           ),
-          TopBar(
+          const TopBar(
             text: 'الحساب الشخصي',
-            leftIcon: InkWell(
-              onTap: () {
-                Get.back();
-              },
-              child: Image.asset(
-                Assets.assetsImagesVectorNoBackground,
-                width: 25,
-                height: 25,
-              ),
-            ),
-            rightIcon: InkWell(
-              onTap: () {},
-              child: Image.asset(
-                Assets.assetsImagesSettings,
-                width: 25,
-                height: 25,
-              ),
-            ),
           ),
         ],
       ),

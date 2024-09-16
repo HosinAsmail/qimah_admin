@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:qimah_admin/core/constant/app_assets.dart';
+import 'package:qimah_admin/core/shared/custom_floating_action_button.dart';
+import 'package:qimah_admin/core/shared/handle_Floating_ActionButtonPress.dart';
 import 'package:qimah_admin/core/shared/search_text_field.dart';
 import 'package:qimah_admin/core/shared/top_bar.dart';
 import 'package:qimah_admin/view/widget/profile/profile_card.dart';
@@ -57,46 +57,35 @@ class StudentsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: CustomFloatingActionButton(
+        onPressed: () {
+          handleFloatingActionButtonPress(context);
+        },
+      ),
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
-          Column(
-            children: [
-              const SizedBox(height: 100),
-              const SearchTextField(),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: studentsData.length,
-                  itemBuilder: (context, index) {
-                    return StudentCard(
-                      title: studentsData[index]["title"]!,
-                      description: studentsData[index]["description"]!,
-                    );
-                  },
+          SafeArea(
+            child: Column(
+              children: [
+                const SizedBox(height: 100),
+                const SearchTextField(),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: studentsData.length,
+                    itemBuilder: (context, index) {
+                      return StudentCard(
+                        title: studentsData[index]["title"]!,
+                        description: studentsData[index]["description"]!,
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          TopBar(
+          const TopBar(
             text: "الطلاب",
-            leftIcon: InkWell(
-              onTap: () {
-                Get.back();
-              },
-              child: Image.asset(
-                Assets.assetsImagesVectorNoBackground,
-                width: 25,
-                height: 25,
-              ),
-            ),
-            rightIcon: InkWell(
-              onTap: () {},
-              child: Image.asset(
-                Assets.assetsImagesSettings,
-                width: 25,
-                height: 25,
-              ),
-            ),
           ),
         ],
       ),

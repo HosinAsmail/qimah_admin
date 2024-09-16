@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qimah_admin/core/constant/app_assets.dart';
+import 'package:qimah_admin/core/constant/app_color.dart';
 import 'package:qimah_admin/core/constant/app_routes.dart';
 import 'package:qimah_admin/core/shared/top_bar.dart';
 import 'package:qimah_admin/view/widget/profile/profile_item.dart';
@@ -10,33 +11,33 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Stack(
+    return Scaffold(
+      body: Column(
         children: [
-          SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(18.0),
+          const TopBar(),
+          Expanded(
+            child: SingleChildScrollView(
               child: Column(
                 children: [
-                  const SizedBox(height: 80),
+                  const SizedBox(height: 10),
                   Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: const Color.fromARGB(159, 158, 158, 158)
-                              .withOpacity(0.3),
-                          spreadRadius: 2,
+                          color: AppColor.shadow,
+                          spreadRadius: 1,
                           blurRadius: 10,
                         ),
                       ],
                     ),
                     child: const CircleAvatar(
                       radius: 60,
-                      backgroundColor: Color.fromARGB(255, 225, 232, 235),
+                      backgroundColor: Colors.grey,
                       child: Icon(
                         Icons.person,
-                        size: 50,
+                        size: 60,
+                        color: AppColor.black,
                       ),
                     ),
                   ),
@@ -48,7 +49,7 @@ class ProfileScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 60),
                   ProfileItem(
                     title: 'الحساب الشخصي',
                     iconPath: Assets.assetsImagesPerson,
@@ -56,6 +57,7 @@ class ProfileScreen extends StatelessWidget {
                       Get.toNamed(AppRoute.personalScreen);
                     },
                   ),
+                  const SizedBox(height: 15),
                   ProfileItem(
                     title: 'الطلاب',
                     iconPath: Assets.assetsImagesTowPeople,
@@ -63,6 +65,7 @@ class ProfileScreen extends StatelessWidget {
                       Get.toNamed(AppRoute.studentsScreen);
                     },
                   ),
+                  const SizedBox(height: 15),
                   ProfileItem(
                     title: 'الحلقات',
                     iconPath: Assets.assetsImagesThreePeople,
@@ -70,6 +73,7 @@ class ProfileScreen extends StatelessWidget {
                       Get.toNamed(AppRoute.groupsScreen);
                     },
                   ),
+                  const SizedBox(height: 15),
                   ProfileItem(
                     title: 'المشرفين',
                     iconPath: Assets.assetsImagesSupervisor,
@@ -77,35 +81,28 @@ class ProfileScreen extends StatelessWidget {
                       Get.toNamed(AppRoute.bossesScreen);
                     },
                   ),
-                  ProfileItem(
-                    title: 'المسابقات',
-                    iconPath: Assets.assetsImagesStar,
-                    onTap: () {
-                      Get.toNamed(AppRoute.personalScreen);
-                    },
-                  ),
+                  const SizedBox(height: 15),
                   ProfileItem(
                     title: 'الدورات',
                     iconPath: Assets.assetsImagesPuzzle,
+                    onTap: () {
+                      Get.toNamed(AppRoute.coursesScreen);
+                    },
+                  ),
+                  const SizedBox(height: 15),
+                  ProfileItem(
+                    title: 'المسابقات',
+                    iconPath: Assets.assetsImagesStar,
                     onTap: () {},
                   ),
+                  const SizedBox(height: 15),
                   ProfileItem(
                     title: 'تسجيل الخروج',
                     iconPath: Assets.assetsImagesLogout,
                     onTap: () {},
                   ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 60),
                 ],
-              ),
-            ),
-          ),
-          TopBar(
-            rightIcon: InkWell(
-              onTap: () {},
-              child: Image.asset(
-                Assets.assetsImagesSettings,
-                width: 25,
-                height: 25,
               ),
             ),
           ),
