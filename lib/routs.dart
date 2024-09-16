@@ -28,7 +28,7 @@ List<GetPage<dynamic>>? routes = [
       name: "/",
       page: () => BlocProvider(
             create: (context) => LoginBloc(getIt.get<AuthRepoImpl>()),
-            child: const LoginScreen(),
+            child: const BaseScreen(),
           ),
       middlewares: [MyMiddleWare()]),
   GetPage(
@@ -67,7 +67,6 @@ List<GetPage<dynamic>>? routes = [
       page: () => const BaseScreen(),
       transition: transition.Transition.zoom,
       transitionDuration: const Duration(milliseconds: 400)),
-  
   GetPage(
       name: AppRoute.bossesScreen,
       page: () => BossesScreen(),
