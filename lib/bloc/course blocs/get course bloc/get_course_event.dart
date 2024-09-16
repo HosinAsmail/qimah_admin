@@ -15,10 +15,4 @@ class GetCourseInitialEvent extends GetCourseEvent {
   List<Object?> get props => [];
 }
 
-class GetCoursePressedEvent extends GetCourseEvent {
-  final int mosqueId;
-
-  GetCoursePressedEvent({required this.mosqueId});
-  @override
-  List<Object?> get props => [];
-}
+class GetCoursePressedEvent extends GetCourseEvent {}

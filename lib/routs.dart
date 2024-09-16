@@ -4,15 +4,17 @@ import "package:get/get_navigation/src/routes/transitions_type.dart"
     as transition;
 import 'package:qimah_admin/bloc/auth%20blocs/login%20bloc/login_bloc.dart';
 import 'package:qimah_admin/bloc/auth%20blocs/sign%20up%20bloc/sign_up_bloc.dart';
+import 'package:qimah_admin/bloc/course%20blocs/get%20course%20bloc/get_course_bloc.dart';
 import 'package:qimah_admin/bloc/mosque%20blocs/create%20mosque%20bloc/create_mosque_bloc.dart';
 import 'package:qimah_admin/core/constant/app_routes.dart';
 import 'package:qimah_admin/core/helper/functions/init_get_it.dart';
 import 'package:qimah_admin/core/middleware/my_middleware.dart';
 import 'package:qimah_admin/data/data%20source/repo/auth%20repo/auth_repo_imp.dart';
+import 'package:qimah_admin/data/data%20source/repo/course%20repo/course_repo_imp.dart';
 import 'package:qimah_admin/data/data%20source/repo/mosque%20repo/mosque_repo_imp.dart';
-import 'package:qimah_admin/view/screens/base/Adds/add_courses_screen.dart';
-import 'package:qimah_admin/view/screens/base/Adds/add_groups_screen.dart';
-import 'package:qimah_admin/view/screens/base/Adds/add_students_screen.dart';
+import 'package:qimah_admin/view/screens/base/adds/add_courses_screen.dart';
+import 'package:qimah_admin/view/screens/base/adds/add_groups_screen.dart';
+import 'package:qimah_admin/view/screens/base/adds/add_students_screen.dart';
 import 'package:qimah_admin/view/screens/base/Profile/bosses_screen.dart';
 import 'package:qimah_admin/view/screens/base/Profile/courses_screen.dart';
 import 'package:qimah_admin/view/screens/base/Profile/groups_screen.dart';
@@ -28,7 +30,7 @@ List<GetPage<dynamic>>? routes = [
       name: "/",
       page: () => BlocProvider(
             create: (context) => LoginBloc(getIt.get<AuthRepoImpl>()),
-            child: const BaseScreen(),
+            child: const LoginScreen(),
           ),
       middlewares: [MyMiddleWare()]),
   GetPage(
@@ -83,8 +85,11 @@ List<GetPage<dynamic>>? routes = [
       transition: transition.Transition.upToDown,
       transitionDuration: const Duration(milliseconds: 400)),
   GetPage(
-      name: AppRoute.addCoursesScreen,
-      page: () => CoursesScreen(),
+      name: AppRoute.coursesScreen,
+      page: () => BlocProvider(
+            create: (context) => GetCourseBloc(getIt.get<CourseRepoImpl>()),
+            child: const CoursesScreen(),
+          ),
       transition: transition.Transition.upToDown,
       transitionDuration: const Duration(milliseconds: 400)),
   GetPage(

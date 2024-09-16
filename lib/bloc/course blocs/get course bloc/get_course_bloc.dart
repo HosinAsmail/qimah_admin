@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:qimah_admin/data/data%20source/locale/store_mosque.dart';
 import 'package:qimah_admin/data/data%20source/repo/course%20repo/course_repo_imp.dart';
 import 'package:qimah_admin/data/model/course%20models/course_model.dart';
 
@@ -20,8 +21,8 @@ class GetCourseBloc extends Bloc<GetCourseEvent, GetCourseState> {
     Emitter<GetCourseState> emit,
   ) async {
     emit(GetCourseLoading());
-
-    var result = await courseRepoImpl.getCourses(event.mosqueId);
+    int mosqueId=StoreMosque.getMosque()!.id!;
+    var result = await courseRepoImpl.getCourses(mosqueId);
     result.fold((failure) {
       emit(GetCourseFailure(failure.errMessage));
     }, (courses) {
