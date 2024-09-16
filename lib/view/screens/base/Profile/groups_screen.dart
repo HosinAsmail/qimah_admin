@@ -30,22 +30,24 @@ class GroupsScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
-          Column(
-            children: [
-              const SizedBox(height: 100),
-              const SearchTextField(),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: groupsData.length,
-                  itemBuilder: (context, index) {
-                    return StudentCard(
-                      title: groupsData[index]["title"]!,
-                      description: groupsData[index]["description"]!,
-                    );
-                  },
+          SafeArea(
+            child: Column(
+              children: [
+                const SizedBox(height: 100),
+                const SearchTextField(),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: groupsData.length,
+                    itemBuilder: (context, index) {
+                      return StudentCard(
+                        title: groupsData[index]["title"]!,
+                        description: groupsData[index]["description"]!,
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           const TopBar(
             text: "الحلقات",

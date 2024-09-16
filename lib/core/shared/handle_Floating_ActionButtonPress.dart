@@ -6,7 +6,7 @@ import 'package:qimah_admin/core/shared/buttons/custom_elevated_button.dart';
 
 void handleFloatingActionButtonPress(BuildContext context) {
   showModalBottomSheet(
-    // showDragHandle: false,
+    showDragHandle: false,
     useSafeArea: true,
     context: context,
     builder: (BuildContext context) {
@@ -19,10 +19,10 @@ class SelectionBottomSheet extends StatefulWidget {
   const SelectionBottomSheet({super.key});
 
   @override
-  _SelectionBottomSheetState createState() => _SelectionBottomSheetState();
+  SelectionBottomSheetState createState() => SelectionBottomSheetState();
 }
 
-class _SelectionBottomSheetState extends State<SelectionBottomSheet> {
+class SelectionBottomSheetState extends State<SelectionBottomSheet> {
   int? selectedIndex;
 
   @override
@@ -75,6 +75,7 @@ class _SelectionBottomSheetState extends State<SelectionBottomSheet> {
   Widget _buildSelectionTile(int index, String title, IconData icon) {
     bool isSelected = selectedIndex == index;
     return ListTile(
+      tileColor: isSelected ? AppColor.primaryColor.withOpacity(0.1) : null,
       hoverColor: AppColor.primaryColor.withOpacity(0.1),
       leading: Icon(
         icon,
@@ -106,7 +107,7 @@ class _SelectionBottomSheetState extends State<SelectionBottomSheet> {
     } else if (selectedIndex == 1) {
       Get.toNamed(AppRoute.addGroupsScreen);
     } else if (selectedIndex == 2) {
-      Get.toNamed(AppRoute.addCourseScreen);
+      Get.toNamed(AppRoute.addCoursesScreen);
     }
     // Add logic for other options if needed
   }

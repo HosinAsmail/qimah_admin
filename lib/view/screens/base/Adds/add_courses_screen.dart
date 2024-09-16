@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:qimah_admin/core/constant/app_color.dart';
 import 'package:qimah_admin/core/constant/app_int.dart';
+import 'package:qimah_admin/core/helper/functions/valid_input_function.dart';
 import 'package:qimah_admin/core/shared/buttons/custom_elevated_button.dart';
 import 'package:qimah_admin/core/shared/custom_text_form_field.dart';
 import 'package:qimah_admin/core/shared/top_bar.dart';
 
-class AddCourseScreen extends StatelessWidget {
-  const AddCourseScreen({super.key});
+class AddCoursesScreen extends StatelessWidget {
+  const AddCoursesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -74,12 +75,13 @@ class AddCourseScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   CustomTextFormField(
+                    // controller: createMosqueBloc.courseNameController,
                     keyboardType: TextInputType.text,
                     validator: (value) {
-                      return null;
+                      return validInput(value!.trim(), 3, 30, 'name');
                     },
-                    hintText: 'أدخل وصف الدورة',
-                    label: 'وصف الدورة',
+                    hintText: 'أدخل اسم الدورة',
+                    label: 'اسم الدورة',
                     iconData: Icons.description,
                   ),
                   const SizedBox(height: 16),

@@ -5,32 +5,17 @@ import 'package:qimah_admin/core/shared/search_text_field.dart';
 import 'package:qimah_admin/core/shared/top_bar.dart';
 import 'package:qimah_admin/view/widget/profile/profile_card.dart';
 
-class BossesScreen extends StatelessWidget {
+class CoursesScreen extends StatelessWidget {
   final List<Map<String, String>> bossesData = [
-    {
-      "title": "الأستاذ محمد أحمد",
-      "description": "هنا يكتب مهمة المشرف في الدورة"
-    },
-    {
-      "title": "الأستاذة فاطمة علي",
-      "description": "هنا يكتب مهمة المشرف في الدورة"
-    },
-    {
-      "title": "الأستاذ خالد عمر",
-      "description": "هنا يكتب مهمة المشرف في الدورة"
-    },
-    {
-      "title": "الأستاذ عبدالله محمود",
-      "description": "هنا يكتب مهمة المشرف في الدورة"
-    },
-    {
-      "title": "الأستاذة زينب حسن",
-      "description": "هنا يكتب مهمة المشرف في الدورة"
-    },
+    {"title": "دورة الأستاذ محمد", "description": "هنا يكتب مهمة الدورة"},
+    {"title": "دورة الأستاذ علي", "description": "هنا يكتب مهمة الدورة"},
+    {"title": "دورة الأستاذ عمر", "description": "هنا يكتب مهمة الدورة"},
+    {"title": "دورة الأستاذ محمود", "description": "هنا يكتب مهمة الدورة"},
+    {"title": "دورة الأستاذ حسن", "description": "هنا يكتب مهمة الدورة"},
 
     // يمكنك إضافة المزيد من الحلقات هنا
   ];
-  BossesScreen({super.key});
+  CoursesScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +47,7 @@ class BossesScreen extends StatelessWidget {
             ),
           ),
           const TopBar(
-            text: "المشرفين",
+            text: "الدورات",
           ),
         ],
       ),

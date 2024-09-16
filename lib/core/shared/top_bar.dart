@@ -27,7 +27,7 @@ class TopBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: const EdgeInsets.only(right: 15.0, top: 15),
+              padding: const EdgeInsets.only(right: 13.0, top: 15),
               child: SizedBox(
                 width: 50,
                 height: 50,
@@ -60,7 +60,7 @@ class TopBar extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 15.0, top: 15),
+              padding: const EdgeInsets.only(left: 13.0, top: 15),
               child: SizedBox(
                 width: 50,
                 height: 50,

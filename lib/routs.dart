@@ -10,10 +10,11 @@ import 'package:qimah_admin/core/helper/functions/init_get_it.dart';
 import 'package:qimah_admin/core/middleware/my_middleware.dart';
 import 'package:qimah_admin/data/data%20source/repo/auth%20repo/auth_repo_imp.dart';
 import 'package:qimah_admin/data/data%20source/repo/mosque%20repo/mosque_repo_imp.dart';
-import 'package:qimah_admin/view/screens/base/Adds/add_course_screen.dart';
+import 'package:qimah_admin/view/screens/base/Adds/add_courses_screen.dart';
 import 'package:qimah_admin/view/screens/base/Adds/add_groups_screen.dart';
 import 'package:qimah_admin/view/screens/base/Adds/add_students_screen.dart';
 import 'package:qimah_admin/view/screens/base/Profile/bosses_screen.dart';
+import 'package:qimah_admin/view/screens/base/Profile/courses_screen.dart';
 import 'package:qimah_admin/view/screens/base/Profile/groups_screen.dart';
 import 'package:qimah_admin/view/screens/base/Profile/personal_screen.dart';
 import 'package:qimah_admin/view/screens/base/Profile/students_screen.dart';
@@ -64,11 +65,16 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
       name: AppRoute.groupsScreen,
       page: () => GroupsScreen(),
-      transition: transition.Transition.leftToRight,
+      transition: transition.Transition.upToDown,
       transitionDuration: const Duration(milliseconds: 400)),
   GetPage(
       name: AppRoute.studentsScreen,
       page: () => StudentsScreen(),
+      transition: transition.Transition.upToDown,
+      transitionDuration: const Duration(milliseconds: 400)),
+  GetPage(
+      name: AppRoute.addCoursesScreen,
+      page: () => CoursesScreen(),
       transition: transition.Transition.upToDown,
       transitionDuration: const Duration(milliseconds: 400)),
   GetPage(
@@ -81,9 +87,9 @@ List<GetPage<dynamic>>? routes = [
       page: () => const AddGroupsScreen(),
       transition: transition.Transition.leftToRightWithFade,
       transitionDuration: const Duration(milliseconds: 400)),
-        GetPage(
-      name: AppRoute.addCourseScreen,
-      page: () => const AddCourseScreen(),
+  GetPage(
+      name: AppRoute.addCoursesScreen,
+      page: () => const AddCoursesScreen(),
       transition: transition.Transition.leftToRightWithFade,
       transitionDuration: const Duration(milliseconds: 400)),
 ];

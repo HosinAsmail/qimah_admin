@@ -65,22 +65,24 @@ class StudentsScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
-          Column(
-            children: [
-              const SizedBox(height: 100),
-              const SearchTextField(),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: studentsData.length,
-                  itemBuilder: (context, index) {
-                    return StudentCard(
-                      title: studentsData[index]["title"]!,
-                      description: studentsData[index]["description"]!,
-                    );
-                  },
+          SafeArea(
+            child: Column(
+              children: [
+                const SizedBox(height: 100),
+                const SearchTextField(),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: studentsData.length,
+                    itemBuilder: (context, index) {
+                      return StudentCard(
+                        title: studentsData[index]["title"]!,
+                        description: studentsData[index]["description"]!,
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           const TopBar(
             text: "الطلاب",

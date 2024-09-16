@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:qimah_admin/core/constant/app_int.dart';
 import 'package:qimah_admin/core/shared/custom_text_form_field.dart';
 
 class SearchTextField extends StatelessWidget {
@@ -10,10 +9,10 @@ class SearchTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(AppInt.horizontalPadding),
+      padding: const EdgeInsets.fromLTRB(18, 0, 18, 20),
       child: CustomTextFormField(
         borderDecoration: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(25),
           borderSide: BorderSide.none,
         ),
         textDirection: TextDirection.rtl,
