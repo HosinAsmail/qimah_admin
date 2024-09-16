@@ -11,6 +11,7 @@ import 'package:qimah_admin/core/helper/functions/valid_input_function.dart';
 import 'package:qimah_admin/core/shared/buttons/custom_elevated_button.dart';
 import 'package:qimah_admin/core/shared/custom_image_view.dart';
 import 'package:qimah_admin/core/shared/custom_text_form_field.dart';
+import 'package:qimah_admin/data/data%20source/locale/store_step.dart';
 import 'package:toastification/toastification.dart';
 import '../../core/helper/functions/my_snack_bar.dart';
 
@@ -32,6 +33,7 @@ class SignUpScreen extends StatelessWidget {
             } else if (state is SignUpSuccess) {
               closeLoadingDialog();
               Get.offAllNamed(AppRoute.createMosqueScreen);
+              StoreStep.setStep("1");
               mySnackBar(
                   ToastificationType.success, 'نجاح', 'تم  إنشاء الحساب');
             } else if (state is SignUpLoading) {

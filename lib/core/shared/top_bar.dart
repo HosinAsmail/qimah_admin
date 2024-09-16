@@ -19,8 +19,8 @@ class TopBar extends StatelessWidget {
     return Container(
       height: 100,
       width: double.infinity,
-      decoration: const BoxDecoration(
-        color: Colors.white,
+      decoration: BoxDecoration(
+        color: isDark ? AppColor.black : AppColor.white,
       ),
       child: SafeArea(
         child: Row(

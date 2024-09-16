@@ -8,12 +8,13 @@ bool get isDark {
 class AppColor {
   // App theme colors
   static const Color primaryColor = Color(0xff431B36);
+  static const Color primaryDarkModeColor = const Color.fromARGB(255, 219, 122, 187);
   static const Color secondaryColor = Color(0XFFB3806D);
   static const Color thirdColor = Colors.amberAccent; // Text colors
   static const Color textPrimary = Color(0xFF333333);
 
   static const Color textSecondary = Color(0xFF6C757D);
-  static const Color textWhite = Colors.white;
+  static const Color textWhite = Color.fromARGB(255, 101, 99, 99);
   // Background colors
   static const Color light = Color(0xFFF6F6F6);
 

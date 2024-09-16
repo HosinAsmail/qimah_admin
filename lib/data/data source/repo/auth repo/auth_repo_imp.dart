@@ -24,9 +24,9 @@ class AuthRepoImpl implements AuthRepo {
       return left(failure);
     }, (response) {
       //user
-      StoreUser.setUser(UserModel.fromJson(response["data"]));
+      StoreUser.setUser(UserModel.fromJson(response));
       //token
-      getIt.get<TokenModel>().fromJson(response["data"]);
+      getIt.get<TokenModel>().fromJson(response);
       StoreToken.storeToken(getIt.get<TokenModel>());
       return right(null);
     });
@@ -40,9 +40,9 @@ class AuthRepoImpl implements AuthRepo {
       return left(failure);
     }, (response) {
       //user
-      StoreUser.setUser(UserModel.fromJson(response["data"]));
+      StoreUser.setUser(UserModel.fromJson(response));
       //token
-      getIt.get<TokenModel>().fromJson(response["data"]);
+      getIt.get<TokenModel>().fromJson(response);
       StoreToken.storeToken(getIt.get<TokenModel>());
       return right(null);
     });

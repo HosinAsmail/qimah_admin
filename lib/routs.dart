@@ -25,7 +25,12 @@ import 'package:qimah_admin/view/screens/sign_up_screen.dart';
 
 List<GetPage<dynamic>>? routes = [
   GetPage(
-      name: "/", page: () => const BaseScreen(), middlewares: [MyMiddleWare()]),
+      name: "/",
+      page: () => BlocProvider(
+            create: (context) => LoginBloc(getIt.get<AuthRepoImpl>()),
+            child: const LoginScreen(),
+          ),
+      middlewares: [MyMiddleWare()]),
   GetPage(
       name: AppRoute.loginScreen,
       page: () => BlocProvider(
@@ -47,7 +52,7 @@ List<GetPage<dynamic>>? routes = [
       name: AppRoute.createMosqueScreen,
       page: () => BlocProvider<CreateMosqueBloc>(
             create: (context) => CreateMosqueBloc(getIt.get<MosqueRepoImpl>())
-              ..add(CreateMosqueEvent()),
+              ..add(CreateMosqueInitialEvent()),
             child: const CreateMosqueScreen(),
           ),
       transition: transition.Transition.upToDown,
@@ -57,6 +62,12 @@ List<GetPage<dynamic>>? routes = [
       page: () => const PersonalScreen(),
       transition: transition.Transition.topLevel,
       transitionDuration: const Duration(milliseconds: 400)),
+  GetPage(
+      name: AppRoute.baseScreen,
+      page: () => const BaseScreen(),
+      transition: transition.Transition.zoom,
+      transitionDuration: const Duration(milliseconds: 400)),
+  
   GetPage(
       name: AppRoute.bossesScreen,
       page: () => BossesScreen(),

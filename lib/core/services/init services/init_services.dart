@@ -11,8 +11,8 @@ abstract class InitServices {
     // PrefStorage.clearPreferencesData();
     UserModel.init();
     await testing();
-
-    if (StoreStep.getStep() == "2") {
+    // StoreStep.setStep("1");
+    if (StoreStep.getStep() == "1" || StoreStep.getStep() == "2") {
       // after login in
       await StoreToken.initTokenVariable();
       // getSth();
