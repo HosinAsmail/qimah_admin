@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:qimah_admin/core/constant/app_color.dart';
 import 'package:qimah_admin/core/constant/app_int.dart';
 
-class StudentCard extends StatelessWidget {
+class BossesCard extends StatelessWidget {
   final String? title;
   final String? description;
 
-  const StudentCard({super.key, this.title, this.description});
+  const BossesCard({super.key, this.title, this.description});
 
   @override
   Widget build(BuildContext context) {

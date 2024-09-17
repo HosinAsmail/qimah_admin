@@ -3,7 +3,7 @@ import 'package:qimah_admin/core/shared/custom_floating_action_button.dart';
 import 'package:qimah_admin/core/shared/handle_Floating_ActionButtonPress.dart';
 import 'package:qimah_admin/core/shared/search_text_field.dart';
 import 'package:qimah_admin/core/shared/top_bar.dart';
-import 'package:qimah_admin/view/widget/profile/profile_card.dart';
+import 'package:qimah_admin/view/widget/mosque/students/students_card.dart';
 
 class StudentsScreen extends StatelessWidget {
   final List<Map<String, String>> studentsData = [
@@ -74,7 +74,7 @@ class StudentsScreen extends StatelessWidget {
                   child: ListView.builder(
                     itemCount: studentsData.length,
                     itemBuilder: (context, index) {
-                      return StudentCard(
+                      return StudentsCard(
                         title: studentsData[index]["title"]!,
                         description: studentsData[index]["description"]!,
                       );

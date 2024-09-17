@@ -65,10 +65,9 @@ class SelectionBottomSheetState extends State<SelectionBottomSheet> {
           ),
           CustomElevatedButton(
             text: "التالي",
-            // height: 50,
             margin: const EdgeInsets.all(15),
             buttonTextStyle: const TextStyle(
-              fontSize: 16,
+              fontSize: 14,
             ),
             onPressed: _handleNextButton,
           ),

@@ -45,8 +45,8 @@ class EditText extends StatelessWidget {
                 if (textController.text.isNotEmpty) {
                   Get.back(result: textController.text);
                 } else if (textController.text.isEmpty) {
-                  mySnackBar(
-                      ToastificationType.error, 'خطأ', 'الرجاء إدخال $mainText ');
+                  mySnackBar(ToastificationType.error, 'خطأ',
+                      'الرجاء إدخال $mainText ');
                 }
               },
               child: Text('تعديل $mainText'))

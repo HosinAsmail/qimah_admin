@@ -85,7 +85,7 @@ List<GetPage<dynamic>>? routes = [
       transitionDuration: const Duration(milliseconds: 400)),
   GetPage(
       name: AppRoute.coursesScreen,
-      page: () => CoursesScreen(),
+      page: () => const CoursesScreen(),
       transition: transition.Transition.upToDown,
       transitionDuration: const Duration(milliseconds: 400)),
   GetPage(
@@ -103,7 +103,7 @@ List<GetPage<dynamic>>? routes = [
       page: () => const AddCoursesScreen(),
       transition: transition.Transition.leftToRightWithFade,
       transitionDuration: const Duration(milliseconds: 400)),
-        GetPage(
+  GetPage(
       name: AppRoute.addBossesScreen,
       page: () => const AddBossesScreen(),
       transition: transition.Transition.leftToRightWithFade,

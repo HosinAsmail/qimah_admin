@@ -8,24 +8,22 @@ class BottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80, // زيادة الارتفاع لمراعاة المساحة الإضافية في الأسفل
-      padding: const EdgeInsets.only(top: 10, left: 16, right: 16, bottom: 10),
+      height: 75, // زيادة الارتفاع لمراعاة المساحة الإضافية في الأسفل
+      padding: const EdgeInsets.fromLTRB(14, 0, 14, 10),
       color: Colors.transparent,
       child: Container(
         decoration: const BoxDecoration(
           color: AppColor.primaryColor,
           borderRadius: BorderRadius.all(Radius.circular(15)),
         ),
-        child: SafeArea(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              _buildIcon(context, Assets.assetsImagesPerson2, 0),
-              _buildIcon(context, Assets.assetsImagesBell, 1),
-              _buildIcon(context, Assets.assetsImagesSearch, 2),
-              _buildIcon(context, Assets.assetsImagesHome, 3),
-            ],
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            _buildIcon(context, Assets.assetsImagesPerson2, 0),
+            _buildIcon(context, Assets.assetsImagesBell, 1),
+            _buildIcon(context, Assets.assetsImagesSearch, 2),
+            _buildIcon(context, Assets.assetsImagesHome, 3),
+          ],
         ),
       ),
     );
