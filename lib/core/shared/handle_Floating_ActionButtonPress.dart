@@ -50,20 +50,25 @@ class SelectionBottomSheetState extends State<SelectionBottomSheet> {
           ),
           _buildSelectionTile(
             1,
+            'مشرف',
+            Icons.person_4,
+          ),
+          _buildSelectionTile(
+            2,
             'حلقة',
             Icons.group_add_rounded,
           ),
           _buildSelectionTile(
-            2,
+            3,
             'دورة',
             Icons.groups_2,
           ),
           CustomElevatedButton(
             text: "التالي",
+            // height: 50,
             margin: const EdgeInsets.all(15),
             buttonTextStyle: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
+              fontSize: 16,
             ),
             onPressed: _handleNextButton,
           ),
@@ -105,8 +110,10 @@ class SelectionBottomSheetState extends State<SelectionBottomSheet> {
     if (selectedIndex == 0) {
       Get.toNamed(AppRoute.addStudentsScreen);
     } else if (selectedIndex == 1) {
-      Get.toNamed(AppRoute.addGroupsScreen);
+      Get.toNamed(AppRoute.addBossesScreen);
     } else if (selectedIndex == 2) {
+      Get.toNamed(AppRoute.addGroupsScreen);
+    } else if (selectedIndex == 3) {
       Get.toNamed(AppRoute.addCoursesScreen);
     }
     // Add logic for other options if needed

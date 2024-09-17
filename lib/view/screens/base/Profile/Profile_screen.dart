@@ -67,18 +67,18 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   ProfileItem(
-                    title: 'الحلقات',
-                    iconPath: Assets.assetsImagesThreePeople,
-                    onTap: () {
-                      Get.toNamed(AppRoute.groupsScreen);
-                    },
-                  ),
-                  const SizedBox(height: 15),
-                  ProfileItem(
                     title: 'المشرفين',
                     iconPath: Assets.assetsImagesSupervisor,
                     onTap: () {
                       Get.toNamed(AppRoute.bossesScreen);
+                    },
+                  ),
+                  const SizedBox(height: 15),
+                  ProfileItem(
+                    title: 'الحلقات',
+                    iconPath: Assets.assetsImagesThreePeople,
+                    onTap: () {
+                      Get.toNamed(AppRoute.groupsScreen);
                     },
                   ),
                   const SizedBox(height: 15),
@@ -101,7 +101,7 @@ class ProfileScreen extends StatelessWidget {
                     iconPath: Assets.assetsImagesLogout,
                     onTap: () {},
                   ),
-                  const SizedBox(height: 60),
+                  const SizedBox(height: 100),
                 ],
               ),
             ),
