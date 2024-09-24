@@ -41,22 +41,20 @@ class _BottomBarState extends State<BottomBar> {
   Widget _buildIcon(BuildContext context, String asset, int index) {
     bool isSelected = selectedIndex == index;
 
-    return Expanded(
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: () => _onItemTapped(index),
-          customBorder: const CircleBorder(),
-          splashColor: AppColor.secondaryColor.withOpacity(0.3),
-          highlightColor: AppColor.secondaryColor.withOpacity(0.1),
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Image.asset(
-              asset,
-              width: 26,
-              height: 26,
-              color: isSelected ? AppColor.secondaryColor : AppColor.white,
-            ),
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: () => _onItemTapped(index),
+        customBorder: const CircleBorder(),
+        splashColor: AppColor.secondaryColor.withOpacity(0.3),
+        highlightColor: AppColor.secondaryColor.withOpacity(0.1),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Image.asset(
+            asset,
+            width: 25,
+            height: 25,
+            color: isSelected ? AppColor.secondaryColor : AppColor.white,
           ),
         ),
       ),

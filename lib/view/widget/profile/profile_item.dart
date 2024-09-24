@@ -67,7 +67,7 @@ class ProfileItem extends StatelessWidget {
                     Assets.assetsImagesVectorWhite,
                     width: 20,
                     height: 20,
-                    color: AppColor.secondaryColor,
+                    color: AppColor.secondaryColor.withOpacity(0.5),
                   ),
                 ),
               ],
