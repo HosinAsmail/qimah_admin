@@ -31,7 +31,7 @@ class ProfileItem extends StatelessWidget {
           ],
         ),
         child: Material(
-          color: const Color.fromARGB(0, 121, 102, 102),
+          color: Colors.transparent,
           child: InkWell(
             splashColor: AppColor.secondaryColor.withOpacity(0.3),
             borderRadius: BorderRadius.circular(20),
