@@ -52,14 +52,19 @@ class CourseInputModel {
       name: map['name'] != null ? map['name'] as String : null,
       gender: map['gender'] != null ? map['gender'] as int : null,
       mosqueId: map['mosqueId'] != null ? map['mosqueId'] as int : null,
-      createdAt: map['createdAt'] != null ? DateTime.fromMillisecondsSinceEpoch(map['createdAt'] as int) : null,
-      lastUpdatedAt: map['lastUpdatedAt'] != null ? DateTime.fromMillisecondsSinceEpoch(map['lastUpdatedAt'] as int) : null,
+      createdAt: map['createdAt'] != null
+          ? DateTime.fromMillisecondsSinceEpoch(map['createdAt'] as int)
+          : null,
+      lastUpdatedAt: map['lastUpdatedAt'] != null
+          ? DateTime.fromMillisecondsSinceEpoch(map['lastUpdatedAt'] as int)
+          : null,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory CourseInputModel.fromJson(String source) => CourseInputModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory CourseInputModel.fromJson(String source) =>
+      CourseInputModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
@@ -69,23 +74,22 @@ class CourseInputModel {
   @override
   bool operator ==(covariant CourseInputModel other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.id == id &&
-      other.name == name &&
-      other.gender == gender &&
-      other.mosqueId == mosqueId &&
-      other.createdAt == createdAt &&
-      other.lastUpdatedAt == lastUpdatedAt;
+
+    return other.id == id &&
+        other.name == name &&
+        other.gender == gender &&
+        other.mosqueId == mosqueId &&
+        other.createdAt == createdAt &&
+        other.lastUpdatedAt == lastUpdatedAt;
   }
 
   @override
   int get hashCode {
     return id.hashCode ^
-      name.hashCode ^
-      gender.hashCode ^
-      mosqueId.hashCode ^
-      createdAt.hashCode ^
-      lastUpdatedAt.hashCode;
+        name.hashCode ^
+        gender.hashCode ^
+        mosqueId.hashCode ^
+        createdAt.hashCode ^
+        lastUpdatedAt.hashCode;
   }
 }

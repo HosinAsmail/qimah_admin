@@ -45,6 +45,7 @@ class AddCourseBloc extends Bloc<AddCourseEvent, AddCourseState> {
     AddCourseInitialEvent event,
     Emitter<AddCourseState> emit,
   ) async {
+    courseGenderController.text = "0";
     // usernameController = TextEditingController();
     // emailController = TextEditingController();
     // passwordController = TextEditingController();

@@ -21,7 +21,7 @@ class GetCourseBloc extends Bloc<GetCourseEvent, GetCourseState> {
     Emitter<GetCourseState> emit,
   ) async {
     emit(GetCourseLoading());
-    int mosqueId=StoreMosque.getMosque()!.id!;
+    int mosqueId = StoreMosque.getMosque()!.id!;
     var result = await courseRepoImpl.getCourses(mosqueId);
     result.fold((failure) {
       emit(GetCourseFailure(failure.errMessage));

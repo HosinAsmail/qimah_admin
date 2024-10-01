@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:qimah_admin/core/constant/app_color.dart';
 import 'package:qimah_admin/core/constant/app_int.dart';
+import 'package:qimah_admin/data/model/Group%20models/Group_model.dart';
 
-class GroupsCard extends StatelessWidget {
-  final String? title;
-  final String? description;
-
-  const GroupsCard({super.key, this.title, this.description});
+class GroupCard extends StatelessWidget {
+  final GroupModel groupModel;
+  const GroupCard({super.key, required this.groupModel});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +43,7 @@ class GroupsCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            title ?? "",
+                            groupModel.name ?? "",
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               color: AppColor.primaryColor,
@@ -53,7 +52,7 @@ class GroupsCard extends StatelessWidget {
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            description ?? "",
+                            groupModel.description ?? "",
                             style: TextStyle(
                               color: Colors.grey[600],
                               fontSize: 14,

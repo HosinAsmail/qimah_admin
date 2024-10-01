@@ -31,9 +31,9 @@ class CourseCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(25),
             splashColor: AppColor.secondaryColor.withOpacity(0.3),
             child: Ink(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(25)),
-                color: Colors.white,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(25)),
+                color: AppColor.whiteBlackSame,
               ),
               child: Padding(
                 padding: const EdgeInsets.all(15.0),

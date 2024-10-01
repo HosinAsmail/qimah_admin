@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 import 'package:qimah_admin/bloc/course%20blocs/get%20course%20bloc/get_course_bloc.dart';
 import 'package:qimah_admin/core/shared/custom_floating_action_button.dart';
 import 'package:qimah_admin/core/shared/handle_Floating_ActionButtonPress.dart';
@@ -31,6 +32,10 @@ class CoursesScreen extends StatelessWidget {
                 BlocBuilder<GetCourseBloc, GetCourseState>(
                   builder: (context, state) {
                     if (state is GetCourseSuccess) {
+                      if (state.courses.isEmpty) {
+                        return const Text(
+                            "لا يوجد أي حلقات بعد\n قم بإنشاء واحدة");
+                      }
                       return Expanded(
                         child: ListView.builder(
                           itemCount: state.courses.length,
@@ -40,6 +45,15 @@ class CoursesScreen extends StatelessWidget {
                             );
                           },
                         ),
+                      );
+                    } else if (state is GetCourseLoading) {
+                      return Column(
+                        children: [
+                          SizedBox(height: Get.height / 3),
+                          const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                        ],
                       );
                     } else {
                       return const SizedBox();

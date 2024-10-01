@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:qimah_admin/bloc/mosque%20blocs/create%20mosque%20bloc/create_mosque_bloc.dart';
 import 'package:qimah_admin/core/constant/app_enums.dart';
+import 'package:qimah_admin/core/helper/functions/get_gender_name.dart';
 
 class ChooseGenderRadioButton extends StatefulWidget {
-  const ChooseGenderRadioButton({super.key});
+  const ChooseGenderRadioButton(
+      {super.key, this.defaultGender, required this.onChanged});
+  final int? defaultGender;
+  final void Function(String) onChanged;
   @override
   State<ChooseGenderRadioButton> createState() =>
       _ChooseGenderRadioButtonState();
@@ -15,8 +17,9 @@ class _ChooseGenderRadioButtonState extends State<ChooseGenderRadioButton> {
 
   @override
   Widget build(BuildContext context) {
-    context.read<CreateMosqueBloc>().courseGenderController.text =
-        convertToNumber(_selectedType).toString();
+    if (widget.defaultGender != null) {
+      _selectedType = toGenderType(widget.defaultGender!);
+    }
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
@@ -32,6 +35,7 @@ class _ChooseGenderRadioButtonState extends State<ChooseGenderRadioButton> {
             onChanged: (value) {
               setState(() {
                 _selectedType = value!;
+                widget.onChanged(value.name);
               });
             },
           ),
@@ -48,19 +52,12 @@ class _ChooseGenderRadioButtonState extends State<ChooseGenderRadioButton> {
             onChanged: (value) {
               setState(() {
                 _selectedType = value!;
+                widget.onChanged(value.name);
               });
             },
           ),
         ),
       ],
     );
-  }
-
-  int convertToNumber(GenderType gender) {
-    if (gender == GenderType.male) {
-      return 1;
-    } else {
-      return 0;
-    }
   }
 }

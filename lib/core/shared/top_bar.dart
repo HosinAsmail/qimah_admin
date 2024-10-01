@@ -7,7 +7,7 @@ class TopBar extends StatelessWidget {
   final TextStyle? titleTextStyle;
   final Widget? leftIcon;
   final Widget? rightIcon;
-  final double? heightbar;
+  final double? heightBar;
 
   const TopBar(
       {super.key,
@@ -15,11 +15,11 @@ class TopBar extends StatelessWidget {
       this.titleTextStyle,
       this.leftIcon,
       this.rightIcon,
-      this.heightbar});
+      this.heightBar});
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: heightbar ?? 100,
+      height: heightBar ?? 100,
       width: double.infinity,
       decoration: BoxDecoration(
         color: isDark ? AppColor.black : AppColor.white,

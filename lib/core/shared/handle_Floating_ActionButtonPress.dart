@@ -34,7 +34,7 @@ class SelectionBottomSheetState extends State<SelectionBottomSheet> {
             title: Align(
               alignment: Alignment.center,
               child: Text(
-                'اختر ما تريد إضافتة',
+                'اختر ما تريد إضافته',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,

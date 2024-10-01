@@ -6,7 +6,7 @@ class AppLinks {
   static const String authLink = '$serverLink/auth';
   static const String signUpLink = '$authLink/register';
   static const String loginLink = '$authLink/login';
-  static const String refreshTokenLink = '$authLink/refresh-access-token/';
+  static const String refreshTokenLink = '$authLink/refresh-access-token';
   //-------------------------mosque------------------------/
   static const String mosqueLink = '$serverLink/mosque';
   // static const String createMosqueLink = '$mosqueLink/register';
@@ -16,4 +16,10 @@ class AppLinks {
   static const String editCoursesLink = '$coursesLink/course';
   static const String deleteCoursesLink = '$coursesLink/';
   static const String getCoursesLink = '$coursesLink/courses/';
+  //-------------------------group------------------------/
+  static const String groupsLink = '$serverLink/groups';
+  static const String addGroupsLink = '$groupsLink/group';
+  static const String editGroupsLink = '$groupsLink/group';
+  static const String deleteGroupsLink = '$groupsLink/group/';
+  static const String getGroupsLink = '$groupsLink/';
 }

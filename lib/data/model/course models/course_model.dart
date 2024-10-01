@@ -30,14 +30,18 @@ class CourseModel extends Equatable {
             : DateTime.parse(json['lastUpdatedAt'] as String),
       );
 
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'name': name,
-        'gender': gender,
-        'mosqueId': mosqueId,
-        'createdAt': createdAt?.toIso8601String(),
-        'lastUpdatedAt': lastUpdatedAt?.toIso8601String(),
-      };
+  Map<String, dynamic> toJson() {
+    Map<String, dynamic> map = {
+      'id': id,
+      'name': name,
+      'gender': gender,
+      'mosqueId': mosqueId,
+      'createdAt': createdAt?.toIso8601String(),
+      'lastUpdatedAt': lastUpdatedAt?.toIso8601String(),
+    };
+    map.removeWhere((key, value) => value == null);
+    return map;
+  }
 
   CourseModel copyWith({
     int? id,

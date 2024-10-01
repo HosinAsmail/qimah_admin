@@ -17,7 +17,8 @@ class ProfileScreen extends StatelessWidget {
         body: Column(
           children: [
             const TopBar(
-              heightbar: 80,
+              heightBar: 80,
+              leftIcon: SizedBox(),
             ),
             Expanded(
               child: SingleChildScrollView(

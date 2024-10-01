@@ -4,11 +4,21 @@ import "package:get/get_navigation/src/routes/transitions_type.dart"
     as transition;
 import 'package:qimah_admin/bloc/auth%20blocs/login%20bloc/login_bloc.dart';
 import 'package:qimah_admin/bloc/auth%20blocs/sign%20up%20bloc/sign_up_bloc.dart';
+import 'package:qimah_admin/bloc/course%20blocs/add%20course%20bloc/add_course_bloc.dart';
+import 'package:qimah_admin/bloc/course%20blocs/delete%20course%20bloc/delete_course_bloc.dart';
+import 'package:qimah_admin/bloc/course%20blocs/edit%20course%20bloc/edit_course_bloc.dart';
+import 'package:qimah_admin/bloc/course%20blocs/get%20course%20bloc/get_course_bloc.dart';
+import 'package:qimah_admin/bloc/group%20blocs/add%20group%20bloc/add_group_bloc.dart';
+import 'package:qimah_admin/bloc/group%20blocs/delete%20group%20bloc/delete_group_bloc.dart';
+import 'package:qimah_admin/bloc/group%20blocs/edit%20group%20bloc/edit_group_bloc.dart';
+import 'package:qimah_admin/bloc/group%20blocs/get%20group%20bloc/get_group_bloc.dart';
 import 'package:qimah_admin/bloc/mosque%20blocs/create%20mosque%20bloc/create_mosque_bloc.dart';
 import 'package:qimah_admin/core/constant/app_routes.dart';
 import 'package:qimah_admin/core/helper/functions/init_get_it.dart';
 import 'package:qimah_admin/core/middleware/my_middleware.dart';
 import 'package:qimah_admin/data/data%20source/repo/auth%20repo/auth_repo_imp.dart';
+import 'package:qimah_admin/data/data%20source/repo/course%20repo/course_repo_imp.dart';
+import 'package:qimah_admin/data/data%20source/repo/group%20repo/group_repo_imp.dart';
 import 'package:qimah_admin/data/data%20source/repo/mosque%20repo/mosque_repo_imp.dart';
 import 'package:qimah_admin/view/screens/base/Adds/add_bosses_screen.dart';
 import 'package:qimah_admin/view/screens/base/Adds/add_courses_screen.dart';
@@ -75,7 +85,21 @@ List<GetPage<dynamic>>? routes = [
       transitionDuration: const Duration(milliseconds: 400)),
   GetPage(
       name: AppRoute.groupsScreen,
-      page: () => GroupsScreen(),
+      page: () => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => GetGroupBloc(getIt.get<GroupRepoImpl>()),
+              ),
+              BlocProvider(
+                create: (context) =>
+                    DeleteGroupBloc(getIt.get<GroupRepoImpl>()),
+              ),
+              BlocProvider(
+                create: (context) => EditGroupBloc(getIt.get<GroupRepoImpl>()),
+              ),
+            ],
+            child: GroupsScreen(),
+          ),
       transition: transition.Transition.upToDown,
       transitionDuration: const Duration(milliseconds: 400)),
   GetPage(
@@ -85,7 +109,22 @@ List<GetPage<dynamic>>? routes = [
       transitionDuration: const Duration(milliseconds: 400)),
   GetPage(
       name: AppRoute.coursesScreen,
-      page: () => const CoursesScreen(),
+      page: () => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => GetCourseBloc(getIt.get<CourseRepoImpl>()),
+              ),
+              BlocProvider(
+                create: (context) =>
+                    DeleteCourseBloc(getIt.get<CourseRepoImpl>()),
+              ),
+              BlocProvider(
+                create: (context) =>
+                    EditCourseBloc(getIt.get<CourseRepoImpl>()),
+              ),
+            ],
+            child: const CoursesScreen(),
+          ),
       transition: transition.Transition.upToDown,
       transitionDuration: const Duration(milliseconds: 400)),
   GetPage(
@@ -95,12 +134,22 @@ List<GetPage<dynamic>>? routes = [
       transitionDuration: const Duration(milliseconds: 400)),
   GetPage(
       name: AppRoute.addGroupsScreen,
-      page: () => const AddGroupsScreen(),
+      page: () => BlocProvider(
+            create: (context) => AddGroupBloc(getIt.get<GroupRepoImpl>()),
+            child: const AddGroupsScreen(),
+          ),
       transition: transition.Transition.leftToRightWithFade,
       transitionDuration: const Duration(milliseconds: 400)),
   GetPage(
       name: AppRoute.addCoursesScreen,
-      page: () => const AddCoursesScreen(),
+      page: () => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => AddCourseBloc(getIt.get<CourseRepoImpl>()),
+              ),
+            ],
+            child: const AddCoursesScreen(),
+          ),
       transition: transition.Transition.leftToRightWithFade,
       transitionDuration: const Duration(milliseconds: 400)),
   GetPage(

@@ -51,7 +51,7 @@ class CreateMosqueBloc extends Bloc<CreateMosqueEvent, CreateMosqueState> {
     CreateMosqueInitialEvent event,
     Emitter<CreateMosqueState> emit,
   ) async {
-    // usernameController = TextEditingController();
+    courseGenderController.text = "0";
     // emailController = TextEditingController();
     // passwordController = TextEditingController();
     // phoneNumberController = TextEditingController();

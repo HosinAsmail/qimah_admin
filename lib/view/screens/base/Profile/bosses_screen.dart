@@ -5,7 +5,6 @@ import 'package:qimah_admin/core/shared/search_text_field.dart';
 import 'package:qimah_admin/core/shared/top_bar.dart';
 import 'package:qimah_admin/view/widget/bosses/bosses_card.dart';
 
-
 class BossesScreen extends StatelessWidget {
   final List<Map<String, String>> bossesData = [
     {

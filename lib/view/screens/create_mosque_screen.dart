@@ -6,12 +6,13 @@ import 'package:qimah_admin/core/constant/app_assets.dart';
 import 'package:qimah_admin/core/constant/app_routes.dart';
 import 'package:qimah_admin/core/helper/functions/alert_loading.dart';
 import 'package:qimah_admin/core/helper/functions/close_loading_dialog.dart';
+import 'package:qimah_admin/core/helper/functions/get_gender_name.dart';
 import 'package:qimah_admin/core/helper/functions/valid_input_function.dart';
 import 'package:qimah_admin/core/shared/buttons/custom_elevated_button.dart';
 import 'package:qimah_admin/core/shared/custom_image_view.dart';
 import 'package:qimah_admin/core/shared/custom_text_form_field.dart';
 import 'package:qimah_admin/data/data%20source/locale/store_step.dart';
-import 'package:qimah_admin/view/widget/mosque/choose_gender_radio_button.dart';
+import 'package:qimah_admin/core/shared/choose_gender_radio_button.dart';
 import 'package:toastification/toastification.dart';
 
 import '../../core/helper/functions/my_snack_bar.dart';
@@ -98,7 +99,14 @@ class CreateMosqueScreen extends StatelessWidget {
                     iconData: Icons.description,
                   ),
                   const SizedBox(height: 16),
-                  const ChooseGenderRadioButton(),
+                  ChooseGenderRadioButton(
+                    onChanged: (gender) {
+                      context
+                          .read<CreateMosqueBloc>()
+                          .courseGenderController
+                          .text = toGenderNumber(gender).toString();
+                    },
+                  ),
                   const SizedBox(height: 16),
                   CustomElevatedButton(
                     text: "إنشاء الحساب",
