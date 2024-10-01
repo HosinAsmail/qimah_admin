@@ -2,19 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:qimah_admin/core/constant/app_assets.dart';
 import 'package:qimah_admin/core/constant/app_color.dart';
 
-class BottomBar extends StatelessWidget {
+class BottomBar extends StatefulWidget {
   const BottomBar({super.key});
+
+  @override
+  State<BottomBar> createState() => _BottomBarState();
+}
+
+class _BottomBarState extends State<BottomBar> {
+  int? selectedIndex;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 75, // زيادة الارتفاع لمراعاة المساحة الإضافية في الأسفل
-      padding: const EdgeInsets.fromLTRB(14, 0, 14, 10),
+      height: 55,
       color: Colors.transparent,
       child: Container(
         decoration: const BoxDecoration(
           color: AppColor.primaryColor,
-          borderRadius: BorderRadius.all(Radius.circular(15)),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -30,9 +39,32 @@ class BottomBar extends StatelessWidget {
   }
 
   Widget _buildIcon(BuildContext context, String asset, int index) {
-    return InkWell(
-      onTap: () => DefaultTabController.of(context).animateTo(index),
-      child: Image.asset(asset, width: 23, height: 23),
+    bool isSelected = selectedIndex == index;
+
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: () => _onItemTapped(index),
+        customBorder: const CircleBorder(),
+        splashColor: AppColor.secondaryColor.withOpacity(0.3),
+        highlightColor: AppColor.secondaryColor.withOpacity(0.1),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Image.asset(
+            asset,
+            width: 25,
+            height: 25,
+            color: isSelected ? AppColor.secondaryColor : AppColor.white,
+          ),
+        ),
+      ),
     );
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+    DefaultTabController.of(context).animateTo(index);
   }
 }

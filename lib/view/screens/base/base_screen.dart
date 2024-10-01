@@ -9,7 +9,7 @@ class BaseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int initialIndex = 0;
+    int initialIndex = 0; //Get.arguments['initialIndex'];
     return DefaultTabController(
       length: 4,
       initialIndex: initialIndex,
@@ -24,9 +24,9 @@ class BaseScreen extends StatelessWidget {
           child: const TabBarView(
             children: [
               ProfileScreen(),
-              Center(child: Text('NotificationScreen()')),
-              Center(child: Text('SearchScreen()')),
-              Center(child: Text('HomeScreen()')),
+              Text('NotificationScreen()'),
+              Text('SearchScreen()'),
+              Text('HomeScreen()'),
             ],
           ),
         ),

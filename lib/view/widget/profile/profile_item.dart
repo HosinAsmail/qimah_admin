@@ -31,7 +31,7 @@ class ProfileItem extends StatelessWidget {
           ],
         ),
         child: Material(
-          color: const Color.fromARGB(0, 121, 102, 102),
+          color: Colors.transparent,
           child: InkWell(
             splashColor: AppColor.secondaryColor.withOpacity(0.3),
             borderRadius: BorderRadius.circular(20),
@@ -67,7 +67,7 @@ class ProfileItem extends StatelessWidget {
                     Assets.assetsImagesVectorWhite,
                     width: 20,
                     height: 20,
-                    color: AppColor.secondaryColor,
+                    color: AppColor.secondaryColor.withOpacity(0.5),
                   ),
                 ),
               ],
